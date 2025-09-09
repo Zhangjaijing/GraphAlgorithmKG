@@ -17,6 +17,7 @@ class SchemaDetectionResult:
     confidence: float
     evidence: List[str]
     method: str  # 'ontology', 'seed_knowledge', 'document', 'llm'
+    schema: Optional[object] = None  # 添加schema属性以兼容动态Schema
 
 class SchemaDetector:
     """基于本体Schema的领域检测器"""
@@ -95,6 +96,8 @@ class SchemaDetector:
                 0.3 * seed_score +          # 种子知识匹配
                 0.3 * document_score        # 文档结构匹配
             )
+
+
 
             if final_score > 0.05:  # 降低最低阈值
                 all_evidence = ontology_evidence + seed_evidence + document_evidence

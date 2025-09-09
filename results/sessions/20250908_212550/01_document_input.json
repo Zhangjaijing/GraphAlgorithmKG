@@ -1,0 +1,14 @@
+{
+  "stage_name": "document_input",
+  "stage_number": 1,
+  "timestamp": "2025-09-08T21:25:50.509412",
+  "description": "原始文档输入和内容解析",
+  "input_summary": "文档路径: /var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt, 用户查询: 分析地理监测站的时空关系",
+  "output_summary": "解析文档内容 248 字符",
+  "data": {
+    "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+    "content": "\n    长江流域水文监测系统包含多个监测站点。三峡监测站位于长江干流，\n    负责监测水位、流量和水质数据。该监测站配备了自动化水位计，\n    每小时记录一次水位数据。在2024年汛期期间，监测站记录了\n    历史最高水位28.5米，持续时间为6小时。\n    \n    洞庭湖监测站位于长江支流，主要监测湖泊水位变化。\n    该站点与三峡监测站之间距离约200公里，两站数据存在\n    明显的时空相关性。当上游水位上升时，下游水位通常\n    在12-24小时后也会上升。\n    ",
+    "content_length": 248,
+    "user_query": "分析地理监测站的时空关系"
+  }
+}

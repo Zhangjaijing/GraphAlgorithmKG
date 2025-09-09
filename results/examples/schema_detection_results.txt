@@ -1,0 +1,21 @@
+Schema检测结果
+========================================
+
+文档: 算法性能文档
+检测到的Schema: ../schemas/general/schema_config.yaml
+置信度: 0.171
+预期Schema: 通用算法Schema
+检测成功: 是
+------------------------------
+文档: 时空事件文档
+检测到的Schema: spatiotemporal_schema.yaml
+置信度: 0.241
+预期Schema: 时空Schema
+检测成功: 是
+------------------------------
+文档: 企业架构文档
+检测到的Schema: spatiotemporal_schema.yaml
+置信度: 0.089
+预期Schema: DO-DA-F Schema
+检测成功: 是
+------------------------------

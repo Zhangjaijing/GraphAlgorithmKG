@@ -1,0 +1,25 @@
+{
+  "session_id": "20250909_113334",
+  "start_time": "2025-09-09T11:33:34.069917",
+  "end_time": "2025-09-09T11:33:40.892867",
+  "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp2a46zuxz.txt",
+  "schema_used": "",
+  "total_processing_time": 6.82295,
+  "stages_completed": [
+    "document_input",
+    "schema_detection",
+    "triple_extraction",
+    "entity_inference",
+    "final_kg"
+  ],
+  "final_stats": {
+    "total_entities": 8,
+    "total_relations": 8,
+    "processing_time": 6.821610927581787,
+    "schema_used": "dynamic_用户关系查询schema.yaml",
+    "extraction_methods": [
+      "rule_extraction",
+      "llm_extraction"
+    ]
+  }
+}

@@ -27,7 +27,7 @@ def test_schema_detection():
     print("\n📄 测试1: 企业架构文档（通用本体）")
     print("-" * 40)
 
-    doc1 = load_test_document("data/test_documents/dodaf_enterprise_architecture.json")
+    doc1 = load_test_document("data/documents/dodaf_enterprise_architecture.json")
     text1 = doc1["text_content"]
     expected_schema1 = doc1["expected_schema"]
 
@@ -57,7 +57,7 @@ def test_schema_detection():
     print("\n\n📄 测试2: 时空DoDAF文档（时空本体）")
     print("-" * 40)
 
-    doc2 = load_test_document("data/test_documents/dodaf_spatiotemporal.json")
+    doc2 = load_test_document("data/documents/dodaf_spatiotemporal.json")
     text2 = doc2["text_content"]
     expected_schema2 = doc2["expected_schema"]
 
@@ -86,7 +86,7 @@ def test_schema_detection():
     print("\n\n📄 测试3: 纯DO-DA-F结构文档（时空本体）")
     print("-" * 40)
 
-    doc3 = load_test_document("data/test_documents/pure_dodaf_structure.json")
+    doc3 = load_test_document("data/documents/pure_dodaf_structure.json")
     text3 = doc3["text_content"]
     expected_schema3 = doc3["expected_schema"]
 
@@ -126,7 +126,7 @@ def test_entity_inference(best_schema1, best_schema2, best_schema3):
     inferer1 = EnhancedEntityTypeInferer()  # 默认使用通用Schema
 
     # 加载测试文档1的期望结果
-    doc1 = load_test_document("data/test_documents/dodaf_enterprise_architecture.json")
+    doc1 = load_test_document("data/documents/dodaf_enterprise_architecture.json")
 
     general_entities = [
         "DoDAF",
@@ -178,7 +178,7 @@ def test_entity_inference(best_schema1, best_schema2, best_schema3):
         inferer2.switch_domain(schema_path)
 
         # 加载测试文档2的期望结果
-        doc2 = load_test_document("data/test_documents/dodaf_spatiotemporal.json")
+        doc2 = load_test_document("data/documents/dodaf_spatiotemporal.json")
 
         spatiotemporal_entities = [
             "洪水事件",
@@ -232,7 +232,7 @@ def test_entity_inference(best_schema1, best_schema2, best_schema3):
         inferer3.switch_domain(schema_path3)
 
         # 加载测试文档3的期望结果
-        doc3 = load_test_document("data/test_documents/pure_dodaf_structure.json")
+        doc3 = load_test_document("data/documents/pure_dodaf_structure.json")
 
         dodaf_entities = [
             "checkTemperature",

@@ -102,19 +102,66 @@ class DynamicOntologyManager:
         self.metadata = config.get('metadata', {})
         self.current_version = self.metadata.get('version', '2.0.0')
         
-        # 加载实体类型
-        for name, entity_config in config.get('entity_types', {}).items():
-            self.entity_types[name] = EntityTypeConfig(
-                name=name,
-                **entity_config
-            )
-        
-        # 加载关系类型
-        for name, relation_config in config.get('relation_types', {}).items():
-            self.relation_types[name] = RelationTypeConfig(
-                name=name,
-                **relation_config
-            )
+        # 加载实体类型 - 支持字典和列表两种格式
+        entity_types_data = config.get('entity_types', {})
+        if isinstance(entity_types_data, dict):
+            # 字典格式: {name: config}
+            for name, entity_config in entity_types_data.items():
+                self.entity_types[name] = EntityTypeConfig(
+                    name=name,
+                    **entity_config
+                )
+        elif isinstance(entity_types_data, list):
+            # 列表格式: [{name: "name", ...}]
+            for entity_config in entity_types_data:
+                if isinstance(entity_config, dict) and 'name' in entity_config:
+                    name = entity_config['name']
+                    config_copy = entity_config.copy()
+                    config_copy.pop('name')  # 移除name字段，避免重复
+
+                    # 过滤掉EntityTypeConfig不支持的字段
+                    supported_fields = {
+                        'description', 'examples', 'keywords', 'patterns',
+                        'aliases', 'color', 'created_at', 'usage_count'
+                    }
+                    filtered_config = {k: v for k, v in config_copy.items()
+                                     if k in supported_fields}
+
+                    self.entity_types[name] = EntityTypeConfig(
+                        name=name,
+                        **filtered_config
+                    )
+
+        # 加载关系类型 - 支持字典和列表两种格式
+        relation_types_data = config.get('relation_types', {})
+        if isinstance(relation_types_data, dict):
+            # 字典格式: {name: config}
+            for name, relation_config in relation_types_data.items():
+                self.relation_types[name] = RelationTypeConfig(
+                    name=name,
+                    **relation_config
+                )
+        elif isinstance(relation_types_data, list):
+            # 列表格式: [{name: "name", ...}]
+            for relation_config in relation_types_data:
+                if isinstance(relation_config, dict) and 'name' in relation_config:
+                    name = relation_config['name']
+                    config_copy = relation_config.copy()
+                    config_copy.pop('name')  # 移除name字段，避免重复
+
+                    # 过滤掉RelationTypeConfig不支持的字段
+                    supported_fields = {
+                        'description', 'examples', 'subject_types', 'object_types',
+                        'is_symmetric', 'inverse_relation', 'aliases', 'is_boolean',
+                        'created_at', 'usage_count'
+                    }
+                    filtered_config = {k: v for k, v in config_copy.items()
+                                     if k in supported_fields}
+
+                    self.relation_types[name] = RelationTypeConfig(
+                        name=name,
+                        **filtered_config
+                    )
         
         # 加载扩展配置
         self.expansion_config = config.get('expansion_config', {})

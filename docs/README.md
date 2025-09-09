@@ -2,34 +2,47 @@
 
 ## 📋 **文档分类**
 
-### **🏗️ 系统架构文档 (功能说明)**
-- [`technical_architecture.md`](technical_architecture.md) - 完整技术架构和组件详解
-- [`system_flowchart.md`](system_flowchart.md) - 系统流程图和数据流转
-- [`NEO4J_SETUP.md`](NEO4J_SETUP.md) - Neo4j数据库配置指南
+### **🚀 快速入门**
+- [`HANDOVER_GUIDE.md`](user-guides/HANDOVER_GUIDE.md) - **完整项目交接指南** (推荐首读)
+- [`quick-start/`](quick-start/) - 快速开始指南和示例
 
-### **📚 知识体系文档 (领域知识)**
-- [`HANDOVER_GUIDE.md`](HANDOVER_GUIDE.md) - **完整项目交接指南** (推荐首读)
-- [`API_INTERFACES.md`](API_INTERFACES.md) - API接口和扩展点文档
-- [`ONTOLOGY_GUIDE.md`](ONTOLOGY_GUIDE.md) - 本体设计理论和实践
-- [`SCHEMA_DESIGN_GUIDE.md`](SCHEMA_DESIGN_GUIDE.md) - Schema设计方法论
+### **💻 开发文档**
+- [`development/`](development/) - 开发者相关文档
+  - [`API_INTERFACES.md`](development/API_INTERFACES.md) - API接口和扩展点
+  - [`technical_architecture.md`](development/technical_architecture.md) - 技术架构详解
+  - [`system_flowchart.md`](development/system_flowchart.md) - 系统流程图
+  - [`NEO4J_SETUP.md`](development/NEO4J_SETUP.md) - 数据库配置
 
-### **🎯 快速导航**
+### **📚 用户指南**
+- [`user-guides/`](user-guides/) - 用户使用指南
+  - [`SCHEMA_SYSTEM_GUIDE.md`](user-guides/SCHEMA_SYSTEM_GUIDE.md) - Schema系统使用指南
+  - [`ONTOLOGY_GUIDE.md`](user-guides/ONTOLOGY_GUIDE.md) - 本体设计和使用
 
-#### **新用户入门**
-1. **必读**: [`HANDOVER_GUIDE.md`](HANDOVER_GUIDE.md) - 完整的项目交接指南
-2. 了解架构: [`technical_architecture.md`](technical_architecture.md) - 系统整体架构
-3. 配置环境: [`NEO4J_SETUP.md`](NEO4J_SETUP.md) - 数据库配置
+### **🔬 研究扩展**
+- [`research/`](research/) - 研究相关文档
+  - [`RESEARCH_ANALYSIS.md`](research/RESEARCH_ANALYSIS.md) - 科研重点与消融实验
+  - [`algorithm-explanations/`](research/algorithm-explanations/) - 算法详细说明
+  - [`test-guides/`](research/test-guides/) - 测试指南和结果解读
 
-#### **开发者指南**
-1. **核心文档**: [`HANDOVER_GUIDE.md`](HANDOVER_GUIDE.md) - 包含完整的目录结构和扩展建议
-2. 接口文档: [`API_INTERFACES.md`](API_INTERFACES.md) - 组件接口和扩展点
-3. 流程理解: [`system_flowchart.md`](system_flowchart.md) - 系统流程图
+## 🎯 **快速导航**
 
-#### **研究者参考**
-1. **项目总览**: [`HANDOVER_GUIDE.md`](HANDOVER_GUIDE.md) - 包含科研导向的扩展建议
-2. 本体理论: [`ONTOLOGY_GUIDE.md`](ONTOLOGY_GUIDE.md) - 本体设计和使用
-3. Schema设计: [`SCHEMA_DESIGN_GUIDE.md`](SCHEMA_DESIGN_GUIDE.md) - 设计方法论
+### **新用户入门路径**
+1. 📖 [`HANDOVER_GUIDE.md`](user-guides/HANDOVER_GUIDE.md) - 项目总览
+2. 🚀 [`quick-start/`](quick-start/) - 快速开始
+3. 📚 [`SCHEMA_SYSTEM_GUIDE.md`](user-guides/SCHEMA_SYSTEM_GUIDE.md) - 核心功能
+4. ⚙️ [`NEO4J_SETUP.md`](development/NEO4J_SETUP.md) - 环境配置
+
+### **开发者路径**
+1. 🏗️ [`technical_architecture.md`](development/technical_architecture.md) - 系统架构
+2. 🔌 [`API_INTERFACES.md`](development/API_INTERFACES.md) - 接口文档
+3. 🔄 [`system_flowchart.md`](development/system_flowchart.md) - 流程图
+4. 📊 [`test-guides/`](research/test-guides/) - 测试指南
+
+### **研究者路径**
+1. 🔬 [`RESEARCH_ANALYSIS.md`](research/RESEARCH_ANALYSIS.md) - 科研分析
+2. 🧮 [`algorithm-explanations/`](research/algorithm-explanations/) - 算法说明
+3. 📈 [`test-guides/`](research/test-guides/) - 实验指南
 
 ## 🔗 **快速链接**
 - [主项目README](../README.md) - 项目总览
-- [快速开始](../quick_start.py) - 一键运行示例
+- [示例代码](../examples/) - 完整示例

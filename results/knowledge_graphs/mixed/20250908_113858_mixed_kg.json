@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "schema": "dynamic_知识图谱schema.yaml",
+    "source_document": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+    "created_at": "2025-09-08T11:39:01.719715",
+    "processing_time": 3.590041160583496,
+    "builder_version": "3.0.0"
+  },
+  "entities": [
+    {
+      "id": "entity_1a5bd0e9",
+      "name": "ImageNet和MNIST上进行了测试",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 7.605552673339844e-05,
+        "original_name": "ImageNet和MNIST上进行了测试"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "entity_b318879f",
+      "name": "ImageNet",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 4.982948303222656e-05,
+        "original_name": "ImageNet"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "entity_0b7e67b6",
+      "name": "SVM",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 4.601478576660156e-05,
+        "original_name": "SVM"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "entity_0a853f93",
+      "name": "在小数据集上仍有优势",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 5.0067901611328125e-05,
+        "original_name": "在小数据集上仍有优势"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "entity_c1886b1c",
+      "name": "MNIST",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 8.0108642578125e-05,
+        "original_name": "MNIST"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "entity_2435a45b",
+      "name": "CNN",
+      "type": "Unknown",
+      "properties": {
+        "inference_method": "unknown",
+        "inference_time": 5.0067901611328125e-05,
+        "original_name": "CNN"
+      },
+      "confidence": 0.0,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel_34ce719e",
+      "subject_id": "entity_2435a45b",
+      "subject_name": "CNN",
+      "predicate": "used_in",
+      "object_id": "entity_0b7e67b6",
+      "object_name": "SVM",
+      "properties": {
+        "extraction_confidence": 0.8,
+        "triple_index": 0,
+        "relation_description": "应用场景",
+        "expected_subject_types": [
+          "Algorithm",
+          "Technique"
+        ],
+        "expected_object_types": [
+          "Task"
+        ]
+      },
+      "confidence": 0.8,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "rel_045131d7",
+      "subject_id": "entity_0a853f93",
+      "subject_name": "在小数据集上仍有优势",
+      "predicate": "used_in",
+      "object_id": "entity_1a5bd0e9",
+      "object_name": "ImageNet和MNIST上进行了测试",
+      "properties": {
+        "extraction_confidence": 0.8,
+        "triple_index": 1,
+        "relation_description": "应用场景",
+        "expected_subject_types": [
+          "Algorithm",
+          "Technique"
+        ],
+        "expected_object_types": [
+          "Task"
+        ]
+      },
+      "confidence": 0.8,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    },
+    {
+      "id": "rel_c3f7c01f",
+      "subject_id": "entity_b318879f",
+      "subject_name": "ImageNet",
+      "predicate": "used_in",
+      "object_id": "entity_c1886b1c",
+      "object_name": "MNIST",
+      "properties": {
+        "extraction_confidence": 0.6,
+        "triple_index": 2,
+        "relation_description": "应用场景",
+        "expected_subject_types": [
+          "Algorithm",
+          "Technique"
+        ],
+        "expected_object_types": [
+          "Task"
+        ]
+      },
+      "confidence": 0.6,
+      "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmphnj1a38w.txt",
+      "created_at": "2025-09-08T11:39:01.718181",
+      "schema": "dynamic_知识图谱schema.yaml"
+    }
+  ],
+  "statistics": {
+    "total_entities": 6,
+    "total_relations": 3,
+    "entity_type_distribution": {
+      "Unknown": 6
+    },
+    "relation_type_distribution": {
+      "used_in": 3
+    },
+    "average_entity_confidence": 0.0,
+    "average_relation_confidence": 0.7333333333333334,
+    "extraction_method_breakdown": {
+      "spatial_pattern": {
+        "count": 2,
+        "avg_confidence": 0.8
+      },
+      "context_inference": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    },
+    "rule_extraction_count": 3,
+    "llm_extraction_count": 0,
+    "extraction_methods_used": [
+      "rule_extraction"
+    ],
+    "triple_extraction_time": 0.009407997131347656
+  }
+}

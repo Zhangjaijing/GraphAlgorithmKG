@@ -1,0 +1,14 @@
+{
+  "stage_name": "document_input",
+  "stage_number": 1,
+  "timestamp": "2025-09-09T11:27:34.027047",
+  "description": "原始文档输入和内容解析",
+  "input_summary": "文档路径: /var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3ejk2vf7.txt",
+  "output_summary": "解析文档内容 151 字符",
+  "data": {
+    "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3ejk2vf7.txt",
+    "content": "\n    机器学习是人工智能的一个重要分支。深度学习是机器学习的子领域。\n    卷积神经网络(CNN)是深度学习中的重要算法，主要用于图像识别任务。\n    循环神经网络(RNN)适合处理序列数据，如自然语言处理任务。\n    支持向量机(SVM)是传统机器学习算法，在小数据集上表现良好。\n    ",
+    "content_length": 151,
+    "user_query": null
+  }
+}

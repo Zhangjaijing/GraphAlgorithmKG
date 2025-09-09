@@ -1,0 +1,62 @@
+{
+  "stage_name": "schema_detection",
+  "stage_number": 2,
+  "timestamp": "2025-09-08T21:26:01.452264",
+  "description": "Schema检测和选择，最终选择: dynamic_用户关系查询schema.yaml",
+  "input_summary": "文档内容 + 用户查询",
+  "output_summary": "选择Schema: dynamic_用户关系查询schema.yaml (动态生成), 候选数: 1",
+  "data": {
+    "candidates": [
+      {
+        "schema_file": "dynamic_用户关系查询schema.yaml",
+        "confidence": 0.8,
+        "method": "query_driven_discovery",
+        "evidence": [
+          "问题驱动Schema生成",
+          "临时ID: temp_query_driven_6c6227b5"
+        ]
+      }
+    ],
+    "selected_schema": "dynamic_用户关系查询schema.yaml",
+    "is_dynamic_schema": true,
+    "dynamic_schema_details": {
+      "name": "用户关系查询Schema",
+      "entity_types": [
+        {
+          "name": "Player",
+          "description": "玩家实体"
+        },
+        {
+          "name": "Key",
+          "description": "钥匙实体"
+        },
+        {
+          "name": "Chest",
+          "description": "宝箱实体"
+        },
+        {
+          "name": "Reward",
+          "description": "奖励物品实体"
+        }
+      ],
+      "relation_types": [
+        {
+          "name": "obtainsKey",
+          "description": "获得钥匙"
+        },
+        {
+          "name": "unlocksChest",
+          "description": "解锁宝箱"
+        },
+        {
+          "name": "opensChest",
+          "description": "打开宝箱"
+        },
+        {
+          "name": "containsReward",
+          "description": "包含奖励物品"
+        }
+      ]
+    }
+  }
+}

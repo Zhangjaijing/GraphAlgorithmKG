@@ -1,0 +1,93 @@
+{
+  "stage_name": "triple_extraction",
+  "stage_number": 3,
+  "timestamp": "2025-09-09T11:33:40.887032",
+  "description": "混合三元组抽取，规则:0个，LLM:8个",
+  "input_summary": "文档内容 + Schema配置(dynamic_用户关系查询schema.yaml)",
+  "output_summary": "总计 8 个三元组 (规则:0, LLM:8)",
+  "data": {
+    "extraction_method": "hybrid",
+    "rule_extraction_count": 0,
+    "llm_extraction_count": 8,
+    "methods_used": [
+      "rule_extraction",
+      "llm_extraction"
+    ],
+    "extraction_time": 3.208540916442871,
+    "total_triples": 8,
+    "triples": [
+      {
+        "subject": "玩家",
+        "predicate": "is_instance_of",
+        "object": "青铜钥匙",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "obtains"
+      },
+      {
+        "subject": "青铜钥匙",
+        "predicate": "is_instance_of",
+        "object": "已获取",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "changes_state_to"
+      },
+      {
+        "subject": "宝箱",
+        "predicate": "is_instance_of",
+        "object": "锁定",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "changes_state_from"
+      },
+      {
+        "subject": "宝箱",
+        "predicate": "is_instance_of",
+        "object": "解锁",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "changes_state_to"
+      },
+      {
+        "subject": "玩家",
+        "predicate": "is_instance_of",
+        "object": "宝箱",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "opens"
+      },
+      {
+        "subject": "玩家",
+        "predicate": "is_instance_of",
+        "object": "动作序列",
+        "confidence": 0.8,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "executes"
+      },
+      {
+        "subject": "玩家",
+        "predicate": "uses_paradigm",
+        "object": "青铜钥匙",
+        "confidence": 0.8,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "uses"
+      },
+      {
+        "subject": "玩家",
+        "predicate": "is_instance_of",
+        "object": "奖励物品",
+        "confidence": 0.8,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "receives"
+      }
+    ]
+  }
+}

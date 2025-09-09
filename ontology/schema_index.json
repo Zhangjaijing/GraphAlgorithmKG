@@ -70,6 +70,50 @@
         "get_best_schema",
         "analyze_document"
       ]
+    },
+    "enhanced_schema_detector": {
+      "file": "managers/enhanced_schema_detector.py",
+      "description": "增强版Schema检测器，支持动态发现、演化和合并",
+      "functions": [
+        "detect_schema",
+        "merge_schemas",
+        "persist_temp_schema",
+        "get_schema_version_history",
+        "rollback_schema",
+        "compare_schema_versions"
+      ]
+    },
+    "schema_version_manager": {
+      "file": "managers/schema_version_manager.py",
+      "description": "Schema版本控制和历史管理",
+      "functions": [
+        "save_schema",
+        "get_latest_version",
+        "get_version_history",
+        "load_schema_version",
+        "rollback_schema",
+        "compare_versions"
+      ]
+    },
+    "schema_persistence_manager": {
+      "file": "managers/schema_persistence_manager.py",
+      "description": "Schema持久化和会话管理",
+      "functions": [
+        "create_temp_schema",
+        "get_temp_schema",
+        "persist_temp_schema",
+        "list_active_sessions",
+        "extend_session"
+      ]
+    },
+    "schema_merger": {
+      "file": "managers/schema_merger.py",
+      "description": "Schema智能合并和冲突解决",
+      "functions": [
+        "merge_schemas",
+        "detect_conflicts",
+        "resolve_conflicts"
+      ]
     }
   },
   "detection_rules": {

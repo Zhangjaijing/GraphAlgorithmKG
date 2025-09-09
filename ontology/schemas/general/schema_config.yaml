@@ -21,8 +21,8 @@ entity_types:
     
   Algorithm:
     description: "具体算法或算法家族"
-    examples: ["MINERVA", "Ant_Colony", "Greedy_Search", "Path_Ranking_Algorithm", "OV-1", "OV-2", "SV-1", "SV-2", "TV-1"]
-    keywords: ["algorithm", "algo", "search", "sort", "optimization", "model", "diagram", "specification"]
+    examples: ["MINERVA", "Ant_Colony", "Greedy_Search", "Path_Ranking_Algorithm", "OV-1", "OV-2", "SV-1", "SV-2", "TV-1", "机器学习", "深度学习", "卷积神经网络", "循环神经网络", "支持向量机"]
+    keywords: ["algorithm", "algo", "search", "sort", "optimization", "model", "diagram", "specification", "算法", "机器学习", "深度学习", "神经网络", "学习", "CNN", "RNN", "SVM"]
     patterns: [".*_algorithm$", ".*_search$", ".*_sort$", "^[A-Z]{2,3}-\\d+$", "^[A-Z]{2,3}V-\\d+$"]
     aliases: ["算法", "算法族", "模型", "图表"]
     color: "#4ECDC4"
@@ -45,8 +45,8 @@ entity_types:
     
   Task:
     description: "研究/应用任务"
-    examples: ["Graph_Sparse_Reasoning", "Relation_Prediction", "Node_Classification"]
-    keywords: ["task", "problem", "application", "reasoning"]
+    examples: ["Graph_Sparse_Reasoning", "Relation_Prediction", "Node_Classification", "图像识别", "自然语言处理", "序列数据"]
+    keywords: ["task", "problem", "application", "reasoning", "任务", "识别", "处理", "数据", "图像", "语言", "序列"]
     patterns: [".*_task$", ".*_problem$", ".*_reasoning$"]
     aliases: ["任务", "问题", "应用"]
     color: "#FFEAA7"

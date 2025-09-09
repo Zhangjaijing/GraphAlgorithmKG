@@ -1,0 +1,14 @@
+{
+  "stage_name": "document_input",
+  "stage_number": 1,
+  "timestamp": "2025-09-08T21:25:57.880529",
+  "description": "原始文档输入和内容解析",
+  "input_summary": "文档路径: /var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpie8mnbk3.txt, 用户查询: 分析动作和状态变化的时序关系",
+  "output_summary": "解析文档内容 265 字符",
+  "data": {
+    "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpie8mnbk3.txt",
+    "content": "\n    玩家执行打开宝箱的动作序列。首先，玩家需要获取青铜钥匙，\n    钥匙的初始状态是未获取。通过完成任务，玩家成功获取了钥匙，\n    钥匙状态变为已获取。\n    \n    接下来，玩家来到木制宝箱前。宝箱的初始状态是锁定的，\n    无法直接打开。玩家使用青铜钥匙对宝箱执行解锁动作，\n    宝箱状态从锁定变为解锁。\n    \n    最后，玩家执行打开动作，成功打开了宝箱。整个过程的结果是\n    打开成功，玩家获得了宝箱内的奖励物品。这个动作序列展示了\n    典型的条件-动作-状态变化的时序关系。\n    ",
+    "content_length": 265,
+    "user_query": "分析动作和状态变化的时序关系"
+  }
+}

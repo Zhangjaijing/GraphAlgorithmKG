@@ -1,0 +1,26 @@
+{
+  "stage_name": "schema_detection",
+  "stage_number": 2,
+  "timestamp": "2025-09-09T11:29:31.961143",
+  "description": "Schema检测和选择，最终选择: ../schemas/general/schema_config.yaml",
+  "input_summary": "文档内容 + 无查询",
+  "output_summary": "选择Schema: ../schemas/general/schema_config.yaml (预定义), 候选数: 1",
+  "data": {
+    "candidates": [
+      {
+        "schema_file": "../schemas/general/schema_config.yaml",
+        "confidence": 0.2571428571428571,
+        "method": "hybrid",
+        "evidence": [
+          "Algorithm:机器学习",
+          "Algorithm:深度学习",
+          "Algorithm:卷积神经网络",
+          "Algorithm:循环神经网络",
+          "Algorithm:支持向量机"
+        ]
+      }
+    ],
+    "selected_schema": "../schemas/general/schema_config.yaml",
+    "is_dynamic_schema": false
+  }
+}

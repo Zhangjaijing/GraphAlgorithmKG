@@ -1,0 +1,53 @@
+entity_types:
+  水位数据:
+    aliases: []
+    description: 监测站点记录的水位数据
+    examples: []
+    keywords: []
+    patterns: []
+  水质数据:
+    aliases: []
+    description: 监测站点记录的水质数据
+    examples: []
+    keywords: []
+    patterns: []
+  流量数据:
+    aliases: []
+    description: 监测站点记录的流量数据
+    examples: []
+    keywords: []
+    patterns: []
+  监测站点:
+    aliases: []
+    description: 水文监测系统中的监测站点
+    examples: []
+    keywords: []
+    patterns: []
+metadata:
+  created_at: '2025-09-08T21:25:57.686332'
+  description: 基于用户查询生成的Schema
+  is_temporary: true
+  name: 水文监测系统知识图谱Schema
+  version: 1.0.0
+relation_types:
+  时空相关性:
+    description: 监测站点之间的时空相关性
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  监测站点位置:
+    description: 监测站点的位置信息
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  监测站点数据:
+    description: 监测站点记录的数据类型
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

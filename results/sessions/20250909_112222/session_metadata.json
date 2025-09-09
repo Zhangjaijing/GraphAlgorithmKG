@@ -1,0 +1,12 @@
+{
+  "session_id": "20250909_112222",
+  "start_time": "2025-09-09T11:22:22.562191",
+  "end_time": null,
+  "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmptecfluak.txt",
+  "schema_used": "",
+  "total_processing_time": 0.0,
+  "stages_completed": [
+    "document_input"
+  ],
+  "final_stats": {}
+}

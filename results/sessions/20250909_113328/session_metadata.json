@@ -1,0 +1,24 @@
+{
+  "session_id": "20250909_113328",
+  "start_time": "2025-09-09T11:33:28.802135",
+  "end_time": "2025-09-09T11:33:33.945550",
+  "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp137vhl29.txt",
+  "schema_used": "",
+  "total_processing_time": 5.143415,
+  "stages_completed": [
+    "document_input",
+    "schema_detection",
+    "triple_extraction",
+    "entity_inference",
+    "final_kg"
+  ],
+  "final_stats": {
+    "total_entities": 5,
+    "total_relations": 3,
+    "processing_time": 5.142559051513672,
+    "schema_used": "dynamic_水文监测系统schema.yaml",
+    "extraction_methods": [
+      "rule_extraction"
+    ]
+  }
+}

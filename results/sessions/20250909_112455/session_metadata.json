@@ -1,0 +1,12 @@
+{
+  "session_id": "20250909_112455",
+  "start_time": "2025-09-09T11:24:55.273612",
+  "end_time": null,
+  "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmparna1sl3.txt",
+  "schema_used": "",
+  "total_processing_time": 0.0,
+  "stages_completed": [
+    "document_input"
+  ],
+  "final_stats": {}
+}

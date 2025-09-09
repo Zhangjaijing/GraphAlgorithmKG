@@ -89,16 +89,19 @@ class SessionManager:
         
         return session_id
     
-    def save_stage_result(self, stage_name: str, data: Any, 
-                         description: str = "") -> str:
+    def save_stage_result(self, stage_name: str, data: Any,
+                         description: str = "", input_summary: str = "",
+                         output_summary: str = "") -> str:
         """
-        保存阶段结果
-        
+        保存阶段结果，包含输入输出摘要
+
         Args:
             stage_name: 阶段名称
             data: 要保存的数据
             description: 阶段描述
-            
+            input_summary: 输入数据摘要
+            output_summary: 输出数据摘要
+
         Returns:
             保存的文件路径
         """
@@ -118,6 +121,8 @@ class SessionManager:
             "stage_number": stage_number,
             "timestamp": datetime.now().isoformat(),
             "description": description,
+            "input_summary": input_summary,
+            "output_summary": output_summary,
             "data": data
         }
         
@@ -130,6 +135,10 @@ class SessionManager:
         
         print(f"💾 保存阶段结果: {filename}")
         print(f"   📝 描述: {description}")
+        if input_summary:
+            print(f"   📥 输入: {input_summary}")
+        if output_summary:
+            print(f"   📤 输出: {output_summary}")
         print(f"   📊 数据大小: {len(json.dumps(data, default=str))} 字符")
         
         return str(file_path)

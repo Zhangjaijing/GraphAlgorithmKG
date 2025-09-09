@@ -12,6 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 from ontology.managers.schema_detector import SchemaDetector
+from ontology.managers.enhanced_schema_detector import EnhancedSchemaDetector
 from ontology.managers.dynamic_schema import DynamicOntologyManager
 from pipeline.enhanced_entity_inferer import EnhancedEntityTypeInferer
 from pipeline.hybrid_triple_extractor import HybridTripleExtractor
@@ -55,8 +56,20 @@ class KnowledgeGraph:
 class SchemaBasedKGBuilder:
     """基于Schema的知识图谱构建器"""
     
-    def __init__(self):
-        self.schema_detector = SchemaDetector()
+    def __init__(self, use_enhanced_detector: bool = True, config: Dict = None):
+        """
+        初始化KG构建器
+
+        Args:
+            use_enhanced_detector: 是否使用增强版Schema检测器
+            config: 配置参数
+        """
+        # 支持增强版Schema检测器
+        if use_enhanced_detector:
+            self.schema_detector = EnhancedSchemaDetector(config=config or {})
+        else:
+            self.schema_detector = SchemaDetector()
+
         self.entity_inferer = EnhancedEntityTypeInferer()
         self.hybrid_extractor = None  # 延迟初始化
 
@@ -64,13 +77,17 @@ class SchemaBasedKGBuilder:
         self.entity_id_map = {}
         
     def build_knowledge_graph(self, document_path: str,
-                            output_path: Optional[str] = None) -> KnowledgeGraph:
+                            output_path: Optional[str] = None,
+                            user_query: Optional[str] = None,
+                            related_documents: Optional[List[str]] = None) -> KnowledgeGraph:
         """
         从文档构建完整的知识图谱
 
         Args:
             document_path: 文档路径
             output_path: 输出路径（可选）
+            user_query: 用户查询（用于动态Schema发现）
+            related_documents: 相关文档列表（用于上下文增强）
 
         Returns:
             完整的知识图谱对象
@@ -96,46 +113,88 @@ class SchemaBasedKGBuilder:
             {
                 "document_path": document_path,
                 "content": document_content,
-                "content_length": len(document_content)
+                "content_length": len(document_content),
+                "user_query": user_query if user_query else None
             },
-            "原始文档输入和内容解析"
+            "原始文档输入和内容解析",
+            input_summary=f"文档路径: {document_path}" + (f", 用户查询: {user_query}" if user_query else ""),
+            output_summary=f"解析文档内容 {len(document_content)} 字符"
         )
 
-        # 2. 检测Schema
+        # 2. 检测Schema（支持动态发现）
         print(f"\n🔍 步骤2: Schema检测")
-        schema_results = self.schema_detector.detect_schema(document_content, use_llm=True)
+        if user_query:
+            print(f"   💭 用户查询: {user_query}")
+
+        # 调用增强版Schema检测（向后兼容）
+        if hasattr(self.schema_detector, 'detect_schema'):
+            schema_results = self.schema_detector.detect_schema(
+                document_content,
+                use_llm=True,
+                user_query=user_query,
+                documents=related_documents
+            )
+        else:
+            # 兼容原版检测器
+            schema_results = self.schema_detector.detect_schema(document_content, use_llm=True)
 
         print(f"   🎯 候选Schema列表:")
         for i, result in enumerate(schema_results, 1):
             print(f"      {i}. {result.schema_file} (置信度: {result.confidence:.3f}, 方法: {result.method})")
             print(f"         证据: {', '.join(result.evidence[:3])}")
 
-        best_schema = self.schema_detector.get_best_schema(document_content)
-        if not best_schema:
-            raise ValueError("无法检测到合适的Schema")
-
-        print(f"   ✅ 选择Schema: {best_schema}")
+        # 支持动态Schema
+        if schema_results and hasattr(schema_results[0], 'schema') and schema_results[0].schema:
+            # 使用动态生成的Schema对象
+            selected_schema_obj = schema_results[0].schema
+            best_schema = schema_results[0].schema_file
+            print(f"   ✅ 选择Schema: {best_schema} (动态生成)")
+        else:
+            # 使用传统的Schema文件
+            best_schema = self.schema_detector.get_best_schema(document_content)
+            if not best_schema:
+                raise ValueError("无法检测到合适的Schema")
+            selected_schema_obj = None
+            print(f"   ✅ 选择Schema: {best_schema} (预定义)")
 
         # 保存Schema检测阶段
+        schema_detection_data = {
+            "candidates": [
+                {
+                    "schema_file": result.schema_file,
+                    "confidence": result.confidence,
+                    "method": result.method,
+                    "evidence": result.evidence
+                } for result in schema_results
+            ],
+            "selected_schema": best_schema,
+            "is_dynamic_schema": selected_schema_obj is not None
+        }
+
+        # 如果是动态Schema，添加详细信息
+        if selected_schema_obj:
+            schema_detection_data["dynamic_schema_details"] = {
+                "name": selected_schema_obj.name,
+                "entity_types": [{"name": et.name, "description": et.description} for et in selected_schema_obj.entity_types],
+                "relation_types": [{"name": rt.name, "description": rt.description} for rt in selected_schema_obj.relation_types]
+            }
+
         session_manager.save_stage_result(
             "schema_detection",
-            {
-                "candidates": [
-                    {
-                        "schema_file": result.schema_file,
-                        "confidence": result.confidence,
-                        "method": result.method,
-                        "evidence": result.evidence
-                    } for result in schema_results
-                ],
-                "selected_schema": best_schema
-            },
-            f"Schema检测和选择，最终选择: {best_schema}"
+            schema_detection_data,
+            f"Schema检测和选择，最终选择: {best_schema}",
+            input_summary=f"文档内容 + {'用户查询' if user_query else '无查询'}",
+            output_summary=f"选择Schema: {best_schema} ({'动态生成' if selected_schema_obj else '预定义'}), 候选数: {len(schema_results)}"
         )
 
         # 3. 切换到对应的Schema
         print(f"\n⚙️ 步骤3: 切换Schema配置")
-        self._switch_to_schema(best_schema)
+        if selected_schema_obj:
+            # 使用动态生成的Schema对象
+            self._switch_to_dynamic_schema(selected_schema_obj)
+        else:
+            # 使用传统的Schema文件
+            self._switch_to_schema(best_schema)
 
         # 显示Schema信息
         schema_info = {
@@ -173,9 +232,12 @@ class SchemaBasedKGBuilder:
                 "llm_extraction_count": extraction_result.llm_count,
                 "methods_used": extraction_result.methods_used,
                 "extraction_time": extraction_result.total_time,
-                "triples": triples
+                "total_triples": len(triples),
+                "triples": triples[:50] if len(triples) > 50 else triples  # 限制保存数量
             },
-            f"混合三元组抽取，规则:{extraction_result.rule_count}个，LLM:{extraction_result.llm_count}个"
+            f"混合三元组抽取，规则:{extraction_result.rule_count}个，LLM:{extraction_result.llm_count}个",
+            input_summary=f"文档内容 + Schema配置({best_schema})",
+            output_summary=f"总计 {len(triples)} 个三元组 (规则:{extraction_result.rule_count}, LLM:{extraction_result.llm_count})"
         )
 
         # 5. 构建实体和关系
@@ -199,9 +261,16 @@ class SchemaBasedKGBuilder:
             {
                 "entities": [asdict(entity) for entity in entities],
                 "relations": [asdict(relation) for relation in relations],
-                "entity_type_distribution": entity_type_counts
+                "entity_type_distribution": entity_type_counts,
+                "inference_statistics": {
+                    "total_entities": len(entities),
+                    "total_relations": len(relations),
+                    "unique_entity_types": len(entity_type_counts)
+                }
             },
-            f"实体推断和关系构建，生成{len(entities)}个实体，{len(relations)}个关系"
+            f"实体推断和关系构建，生成{len(entities)}个实体，{len(relations)}个关系",
+            input_summary=f"{len(triples)} 个三元组",
+            output_summary=f"{len(entities)} 个实体, {len(relations)} 个关系, {len(entity_type_counts)} 种实体类型"
         )
 
         # 6. 创建知识图谱
@@ -223,7 +292,9 @@ class SchemaBasedKGBuilder:
         session_manager.save_stage_result(
             "final_kg",
             kg_dict,
-            f"最终知识图谱，包含{kg.statistics['total_entities']}个实体，{kg.statistics['total_relations']}个关系"
+            f"最终知识图谱，包含{kg.statistics['total_entities']}个实体，{kg.statistics['total_relations']}个关系",
+            input_summary=f"实体和关系数据",
+            output_summary=f"完整知识图谱: {kg.statistics['total_entities']}实体, {kg.statistics['total_relations']}关系, Schema: {best_schema}"
         )
 
         # 计算处理时间
@@ -298,6 +369,36 @@ class SchemaBasedKGBuilder:
 
         # 初始化混合抽取器
         self.hybrid_extractor = HybridTripleExtractor(self.entity_inferer.ontology_manager)
+
+    def _switch_to_dynamic_schema(self, schema_obj):
+        """切换到动态生成的Schema对象"""
+        print(f"🔄 使用动态Schema: {schema_obj.name}")
+
+        # 为动态Schema创建临时的ontology_manager
+        from ontology.managers.dynamic_schema import DynamicOntologyManager
+
+        # 创建一个临时的ontology manager来处理动态Schema
+        temp_manager = DynamicOntologyManager()
+
+        # 将动态Schema的实体类型和关系类型添加到manager中
+        for entity_type in schema_obj.entity_types:
+            temp_manager.entity_types[entity_type.name] = entity_type
+
+        for relation_type in schema_obj.relation_types:
+            temp_manager.relation_types[relation_type.name] = relation_type
+
+        # 更新metadata
+        temp_manager.metadata = {
+            'name': schema_obj.name,
+            'description': schema_obj.description,
+            'version': getattr(schema_obj, 'version', '1.0.0')
+        }
+
+        # 替换实体推断器的ontology_manager
+        self.entity_inferer.ontology_manager = temp_manager
+
+        # 初始化混合抽取器
+        self.hybrid_extractor = HybridTripleExtractor(temp_manager)
     
     def _extract_triples_hybrid(self, text: str):
         """使用混合方法抽取三元组"""

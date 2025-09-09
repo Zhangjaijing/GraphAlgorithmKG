@@ -1,0 +1,16 @@
+{
+  "processing_summary": {
+    "total_time": 9.324388027191162,
+    "schema_used": "dynamic_用户关系查询schema.yaml",
+    "extraction_methods": [
+      "rule_extraction",
+      "llm_extraction"
+    ],
+    "quality_metrics": {
+      "entity_count": 8,
+      "relation_count": 7,
+      "avg_entity_confidence": 0.0,
+      "avg_relation_confidence": 0.9000000000000001
+    }
+  }
+}

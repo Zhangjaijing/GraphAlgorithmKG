@@ -1,0 +1,25 @@
+{
+  "session_id": "20250909_112931",
+  "start_time": "2025-09-09T11:29:31.951432",
+  "end_time": "2025-09-09T11:29:37.908685",
+  "document_path": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+  "schema_used": "",
+  "total_processing_time": 5.957253,
+  "stages_completed": [
+    "document_input",
+    "schema_detection",
+    "triple_extraction",
+    "entity_inference",
+    "final_kg"
+  ],
+  "final_stats": {
+    "total_entities": 11,
+    "total_relations": 8,
+    "processing_time": 5.955720901489258,
+    "schema_used": "../schemas/general/schema_config.yaml",
+    "extraction_methods": [
+      "rule_extraction",
+      "llm_extraction"
+    ]
+  }
+}
