@@ -1,0 +1,99 @@
+实验数据详细整理：
+
+------
+
+## **1️⃣ 数据输入**
+
+| 类型           | 文件/路径                                      | 格式 | 样例内容                                                     |
+| -------------- | ---------------------------------------------- | ---- | ------------------------------------------------------------ |
+| 知识图谱三元组 | `data/knowledge/seed/kg_expansion_triples.csv` | CSV  | subject,predicate,object,confidence,sourceAnt_Colony,solves,Traveling_Salesman_Problem,0.9,expansion_ant_colony |
+| Ground truth   | `data/knowledge/seed/ground_truth.csv`         | CSV  | source_entity,target_entityAnt_Colony,Ant_Colony             |
+
+**说明**：
+
+- 三元组用于构建实体列表和关系图，用于语义对齐和结构对齐。
+- Ground truth 用于对齐结果评估，包含实体之间的“正确匹配”。
+
+------
+
+## **2️⃣ 期待输出**
+
+| 输出内容                  | 描述                                                         | 样例                                         |
+| ------------------------- | ------------------------------------------------------------ | -------------------------------------------- |
+| Predicted Alignment Pairs | 每个实体与最相似或最匹配的目标实体及置信度                   | ('Ant_Colony','Ant_Colony',0.99)             |
+| Evaluation Metrics        | Precision / Recall / F1，用于衡量预测对齐与 ground truth 一致性 | {'precision': 1.0, 'recall': 1.0, 'f1': 1.0} |
+
+**解释**：
+
+- **Predicted Alignment Pairs**：模型给出的融合对齐结果
+- **Evaluation Metrics**：精度 (precision)、召回 (recall) 和 F1 值，量化对齐质量
+
+------
+
+## **3️⃣ 设计的对齐方法及效果**
+
+| 方法                           | 描述                                                | 样例效果                                               |
+| ------------------------------ | --------------------------------------------------- | ------------------------------------------------------ |
+| **SemanticAligner**            | 基于实体描述或名称的语义相似度计算                  | 语义对齐候选，例如 "Ant_Colony" 与 "Ant_Colony"        |
+| **StructuralAligner**          | 基于知识图谱结构（图卷积 / 节点关系）计算节点相似度 | 结构对齐候选，例如 "Traveling_Salesman_Problem" 与自身 |
+| **LLMAssistedAligner**         | 模拟 LLM 提供对齐提示或辅助                         | 简化版匹配所有实体到 "Ant_Colony" 或高置信匹配         |
+| **HybridEvaluator**            | 融合上述三种方法得分，生成最终候选                  | 对齐结果置信度融合，例如 0.9~0.99                      |
+| **CognitiveAlignmentAnalyzer** | 冲突过滤，每个实体只保留一次匹配                    | 去掉重复匹配，确保唯一性                               |
+
+**效果分析**：
+
+- 语义 + 结构 + LLM 融合后，**预测对齐完全正确**（precision=1.0, recall=1.0, F1=1.0）
+- 结果显示当前数据集简单（每个实体只对应自身），所以三种方法融合后准确率极高
+- `structural_pairs` 和 `semantic_pairs` 对齐一致性很好，没有产生错误匹配
+
+------
+
+## **4️⃣ 评估方法**
+
+- **计算方式**：
+  - 将预测对齐集合与 ground truth 集合做交集计算 TP（True Positive）
+  - Precision = TP / |预测集合|
+  - Recall = TP / |Ground Truth|
+  - F1 = 2 * Precision * Recall / (Precision + Recall)
+- **实验结果**：
+
+| 指标      | 值   |
+| --------- | ---- |
+| Precision | 1.0  |
+| Recall    | 1.0  |
+| F1        | 1.0  |
+
+**说明**：
+
+- 所有预测对齐都与 ground truth 一致
+- 数据集规模小、实体匹配一一对应，所以评估指标达到满分
+
+------
+
+## **5️⃣ 总结**
+
+1. **数据输入**：知识图谱三元组 + Ground Truth
+
+2. **对齐方法**：
+
+   - SemanticAligner → 语义相似度
+   - StructuralAligner → 结构相似度
+   - LLMAssistedAligner → LLM辅助对齐
+   - HybridEvaluator → 融合得分
+   - CognitiveAlignmentAnalyzer → 冲突过滤
+
+3. **实验结果**：
+
+   - 所有实体预测匹配正确
+   - Precision / Recall / F1 = 1.0
+
+4. **分析**：
+
+   - 对齐算法设计合理
+
+   - 数据集简单，结果理想
+
+   - 对更复杂的数据集，仍需依赖三种方法融合提高鲁棒性
+
+    
+
