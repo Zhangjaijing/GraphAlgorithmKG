@@ -1,0 +1,47 @@
+{
+  "stage_name": "triple_extraction",
+  "stage_number": 3,
+  "timestamp": "2025-09-08T21:25:57.754130",
+  "description": "混合三元组抽取，规则:5个，LLM:0个",
+  "input_summary": "文档内容 + Schema配置(dynamic_水文监测系统知识图谱schema.yaml)",
+  "output_summary": "总计 3 个三元组 (规则:5, LLM:0)",
+  "data": {
+    "extraction_method": "hybrid",
+    "rule_extraction_count": 5,
+    "llm_extraction_count": 0,
+    "methods_used": [
+      "rule_extraction"
+    ],
+    "extraction_time": 0.01532602310180664,
+    "total_triples": 3,
+    "triples": [
+      {
+        "subject": "5米",
+        "predicate": "is_instance_of",
+        "object": "6小",
+        "confidence": 0.8,
+        "method": "temporal_pattern",
+        "evidence": "Duration pattern: (\\w+)[^0-9]*持续时间[^0-9]*([0-9]+[小时天分钟])",
+        "original_predicate": "hasDuration"
+      },
+      {
+        "subject": "长江流域水文监测系统包含多个监测站点",
+        "predicate": "used_in",
+        "object": "升",
+        "confidence": 0.8,
+        "method": "spatial_pattern",
+        "evidence": "Location pattern: (\\w+)[^a-zA-Z]*位于[^a-zA-Z]*(\\w+)",
+        "original_predicate": "locatedAt"
+      },
+      {
+        "subject": "长江流域水文监测系统",
+        "predicate": "implements",
+        "object": "升",
+        "confidence": 0.7,
+        "method": "architecture_pattern",
+        "evidence": "Contains pattern: (\\w+)[^a-zA-Z]*包含[^a-zA-Z]*(\\w+)",
+        "original_predicate": "contains"
+      }
+    ]
+  }
+}

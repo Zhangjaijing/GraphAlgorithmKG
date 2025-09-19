@@ -1,0 +1,106 @@
+{
+  "stage_name": "final_kg",
+  "stage_number": 5,
+  "timestamp": "2025-09-09T11:32:28.924094",
+  "description": "最终知识图谱，包含2个实体，1个关系",
+  "input_summary": "实体和关系数据",
+  "output_summary": "完整知识图谱: 2实体, 1关系, Schema: ../schemas/general/schema_config.yaml",
+  "data": {
+    "metadata": {
+      "schema": "../schemas/general/schema_config.yaml",
+      "source_document": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3pit8gvj.txt",
+      "created_at": "2025-09-09T11:32:28.923908",
+      "processing_time": 7.337560176849365,
+      "builder_version": "3.0.0"
+    },
+    "entities": [
+      {
+        "id": "entity_0b7e67b6",
+        "name": "SVM",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 3.695487976074219e-05,
+          "original_name": "SVM",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3pit8gvj.txt",
+        "created_at": "2025-09-09T11:32:28.922996",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_ac2c8f13",
+        "name": "好",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 8.320808410644531e-05,
+          "original_name": "好"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3pit8gvj.txt",
+        "created_at": "2025-09-09T11:32:28.922996",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "relations": [
+      {
+        "id": "rel_0b43c23d",
+        "subject_id": "entity_0b7e67b6",
+        "subject_name": "SVM",
+        "predicate": "used_in",
+        "object_id": "entity_ac2c8f13",
+        "object_name": "好",
+        "properties": {
+          "extraction_confidence": 0.8,
+          "triple_index": 0,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.8,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp3pit8gvj.txt",
+        "created_at": "2025-09-09T11:32:28.922996",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "statistics": {
+      "total_entities": 2,
+      "total_relations": 1,
+      "entity_type_distribution": {
+        "Algorithm": 1,
+        "Unknown": 1
+      },
+      "relation_type_distribution": {
+        "used_in": 1
+      },
+      "average_entity_confidence": 0.45,
+      "average_relation_confidence": 0.8,
+      "extraction_method_breakdown": {
+        "spatial_pattern": {
+          "count": 1,
+          "avg_confidence": 0.8
+        }
+      },
+      "rule_extraction_count": 1,
+      "llm_extraction_count": 0,
+      "extraction_methods_used": [
+        "rule_extraction",
+        "llm_extraction"
+      ],
+      "triple_extraction_time": 7.2755420207977295
+    }
+  }
+}

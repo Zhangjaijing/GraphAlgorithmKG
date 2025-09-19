@@ -1,0 +1,55 @@
+{
+  "scenario": "场景4: 交互式Schema优化",
+  "trigger_condition": "用户对当前Schema不满意",
+  "user_input": {
+    "current_schema": {
+      "name": "基础算法Schema",
+      "description": "基础的算法分类Schema",
+      "entity_types": [
+        {
+          "name": "Algorithm",
+          "description": "算法",
+          "examples": ["CNN", "RNN", "SVM"],
+          "keywords": ["algorithm", "algo"]
+        },
+        {
+          "name": "Task",
+          "description": "任务",
+          "examples": ["classification", "regression"],
+          "keywords": ["task", "problem"]
+        }
+      ],
+      "relation_types": [
+        {
+          "name": "solves",
+          "description": "算法解决任务"
+        }
+      ]
+    },
+    "user_feedback": "这个分类不够细致，我需要更详细的算法分类，比如深度学习算法、传统机器学习算法、优化算法等，还需要包含算法的性能指标和应用领域",
+    "optimization_requirements": [
+      "更细致的算法分类",
+      "包含性能指标",
+      "包含应用领域",
+      "区分深度学习和传统算法",
+      "添加优化算法类别"
+    ]
+  },
+  "expected_system_behavior": [
+    "主动询问",
+    "细化建议",
+    "迭代优化"
+  ],
+  "expected_output": {
+    "schema_type": "用户满意的精细Schema",
+    "should_contain": [
+      "DeepLearningAlgorithm实体类型",
+      "TraditionalMLAlgorithm实体类型", 
+      "OptimizationAlgorithm实体类型",
+      "PerformanceMetric实体类型",
+      "ApplicationDomain实体类型",
+      "更丰富的关系类型"
+    ]
+  },
+  "test_timestamp": "2025-01-05T13:00:00Z"
+}

@@ -1,0 +1,89 @@
+{
+  "scenario": "场景2测试结果(模拟演化)",
+  "timestamp": "2025-01-05T11:00:00Z",
+  "base_schema": {
+    "name": "基础算法Schema",
+    "description": "基础的算法Schema，用于演化测试",
+    "entity_types": [
+      {
+        "name": "Algorithm",
+        "description": "传统算法"
+      },
+      {
+        "name": "Task",
+        "description": "计算任务"
+      }
+    ],
+    "relation_types": [
+      {
+        "name": "solves",
+        "description": "算法解决任务"
+      },
+      {
+        "name": "optimizes",
+        "description": "算法优化任务"
+      }
+    ]
+  },
+  "detected_concepts": [
+    "量子算法",
+    "量子退火算法",
+    "量子支持向量机",
+    "量子神经网络",
+    "量子计算机"
+  ],
+  "evolved_schema": {
+    "name": "演化后的量子算法Schema",
+    "description": "包含量子算法概念的演化Schema",
+    "entity_types": [
+      {
+        "name": "Algorithm",
+        "description": "传统算法"
+      },
+      {
+        "name": "Task",
+        "description": "计算任务"
+      },
+      {
+        "name": "QuantumAlgorithm",
+        "description": "量子算法"
+      },
+      {
+        "name": "QuantumComputer",
+        "description": "量子计算机"
+      }
+    ],
+    "relation_types": [
+      {
+        "name": "solves",
+        "description": "算法解决任务"
+      },
+      {
+        "name": "optimizes",
+        "description": "算法优化任务"
+      },
+      {
+        "name": "runs_on",
+        "description": "算法运行在设备上"
+      },
+      {
+        "name": "quantum_version_of",
+        "description": "是...的量子版本"
+      }
+    ]
+  },
+  "evolution_summary": {
+    "original_entities": 2,
+    "evolved_entities": 4,
+    "original_relations": 2,
+    "evolved_relations": 4,
+    "new_entities": [
+      "QuantumAlgorithm",
+      "QuantumComputer"
+    ],
+    "new_relations": [
+      "runs_on",
+      "quantum_version_of"
+    ]
+  }
+}

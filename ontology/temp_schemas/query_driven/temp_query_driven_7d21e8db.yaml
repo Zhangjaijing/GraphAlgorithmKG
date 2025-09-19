@@ -1,0 +1,47 @@
+entity_types:
+  Chest:
+    aliases: []
+    description: 宝箱实体
+    examples: []
+    keywords: []
+    patterns: []
+  Key:
+    aliases: []
+    description: 钥匙实体
+    examples: []
+    keywords: []
+    patterns: []
+  Player:
+    aliases: []
+    description: 玩家实体
+    examples: []
+    keywords: []
+    patterns: []
+metadata:
+  created_at: '2025-09-09T11:33:37.625003'
+  description: 根据用户关系查询意图生成的Schema
+  is_temporary: true
+  name: 用户关系查询Schema
+  version: 1.0.0
+relation_types:
+  hasKey:
+    description: 拥有钥匙
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  openChest:
+    description: 打开宝箱
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  unlockChest:
+    description: 解锁宝箱
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

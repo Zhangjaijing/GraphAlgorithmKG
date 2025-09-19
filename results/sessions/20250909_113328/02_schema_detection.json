@@ -1,0 +1,70 @@
+{
+  "stage_name": "schema_detection",
+  "stage_number": 2,
+  "timestamp": "2025-09-09T11:33:33.874757",
+  "description": "Schema检测和选择，最终选择: dynamic_水文监测系统schema.yaml",
+  "input_summary": "文档内容 + 用户查询",
+  "output_summary": "选择Schema: dynamic_水文监测系统schema.yaml (动态生成), 候选数: 1",
+  "data": {
+    "candidates": [
+      {
+        "schema_file": "dynamic_水文监测系统schema.yaml",
+        "confidence": 0.8,
+        "method": "query_driven_discovery",
+        "evidence": [
+          "问题驱动Schema生成",
+          "临时ID: temp_query_driven_81eb2a09"
+        ]
+      }
+    ],
+    "selected_schema": "dynamic_水文监测系统schema.yaml",
+    "is_dynamic_schema": true,
+    "dynamic_schema_details": {
+      "name": "水文监测系统Schema",
+      "entity_types": [
+        {
+          "name": "MonitoringStation",
+          "description": "监测站点实体"
+        },
+        {
+          "name": "WaterLevel",
+          "description": "水位数据实体"
+        },
+        {
+          "name": "FlowRate",
+          "description": "流量数据实体"
+        },
+        {
+          "name": "WaterQuality",
+          "description": "水质数据实体"
+        },
+        {
+          "name": "FloodEvent",
+          "description": "洪水事件实体"
+        }
+      ],
+      "relation_types": [
+        {
+          "name": "monitors",
+          "description": "监测"
+        },
+        {
+          "name": "records",
+          "description": "记录"
+        },
+        {
+          "name": "hasFloodEvent",
+          "description": "具有洪水事件"
+        },
+        {
+          "name": "spatialCorrelation",
+          "description": "空间相关性"
+        },
+        {
+          "name": "temporalCorrelation",
+          "description": "时间相关性"
+        }
+      ]
+    }
+  }
+}

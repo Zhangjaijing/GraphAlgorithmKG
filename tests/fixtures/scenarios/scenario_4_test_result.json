@@ -1,0 +1,216 @@
+{
+  "scenario": "场景4测试结果",
+  "timestamp": "2025-01-05T13:00:00Z",
+  "input": {
+    "scenario": "场景4: 交互式Schema优化",
+    "trigger_condition": "用户对当前Schema不满意",
+    "user_input": {
+      "current_schema": {
+        "name": "基础算法Schema",
+        "description": "基础的算法分类Schema",
+        "entity_types": [
+          {
+            "name": "Algorithm",
+            "description": "算法",
+            "examples": [
+              "CNN",
+              "RNN",
+              "SVM"
+            ],
+            "keywords": [
+              "algorithm",
+              "algo"
+            ]
+          },
+          {
+            "name": "Task",
+            "description": "任务",
+            "examples": [
+              "classification",
+              "regression"
+            ],
+            "keywords": [
+              "task",
+              "problem"
+            ]
+          }
+        ],
+        "relation_types": [
+          {
+            "name": "solves",
+            "description": "算法解决任务"
+          }
+        ]
+      },
+      "user_feedback": "这个分类不够细致，我需要更详细的算法分类，比如深度学习算法、传统机器学习算法、优化算法等，还需要包含算法的性能指标和应用领域",
+      "optimization_requirements": [
+        "更细致的算法分类",
+        "包含性能指标",
+        "包含应用领域",
+        "区分深度学习和传统算法",
+        "添加优化算法类别"
+      ]
+    },
+    "expected_system_behavior": [
+      "主动询问",
+      "细化建议",
+      "迭代优化"
+    ],
+    "expected_output": {
+      "schema_type": "用户满意的精细Schema",
+      "should_contain": [
+        "DeepLearningAlgorithm实体类型",
+        "TraditionalMLAlgorithm实体类型",
+        "OptimizationAlgorithm实体类型",
+        "PerformanceMetric实体类型",
+        "ApplicationDomain实体类型",
+        "更丰富的关系类型"
+      ]
+    },
+    "test_timestamp": "2025-01-05T13:00:00Z"
+  },
+  "current_schema": {
+    "name": "基础算法Schema",
+    "description": "基础的算法分类Schema",
+    "entity_types": [
+      {
+        "name": "Algorithm",
+        "description": "算法"
+      },
+      {
+        "name": "Task",
+        "description": "任务"
+      }
+    ],
+    "relation_types": [
+      {
+        "name": "solves",
+        "description": "算法解决任务"
+      }
+    ]
+  },
+  "optimization_process": {
+    "questions": [
+      "您希望如何细分算法类型？",
+      "需要包含哪些性能指标？",
+      "关注哪些应用领域？",
+      "是否需要算法复杂度信息？",
+      "是否需要算法适用数据类型？"
+    ],
+    "suggestions": {
+      "entity_refinements": [
+        {
+          "action": "split",
+          "original": "Algorithm",
+          "new_entities": [
+            "DeepLearningAlgorithm",
+            "TraditionalMLAlgorithm",
+            "OptimizationAlgorithm"
+          ],
+          "reason": "根据用户需求细分算法类型"
+        },
+        {
+          "action": "add",
+          "new_entities": [
+            "PerformanceMetric",
+            "ApplicationDomain",
+            "DataType"
+          ],
+          "reason": "添加性能指标和应用领域信息"
+        }
+      ],
+      "relation_refinements": [
+        {
+          "action": "add",
+          "new_relations": [
+            "hasPerformance",
+            "appliedTo",
+            "suitableFor"
+          ],
+          "reason": "添加算法与性能、应用领域的关系"
+        }
+      ]
+    }
+  },
+  "optimized_schema": {
+    "name": "精细化算法Schema",
+    "description": "根据用户反馈优化的详细算法Schema",
+    "entity_types": [
+      {
+        "name": "DeepLearningAlgorithm",
+        "description": "深度学习算法"
+      },
+      {
+        "name": "TraditionalMLAlgorithm",
+        "description": "传统机器学习算法"
+      },
+      {
+        "name": "OptimizationAlgorithm",
+        "description": "优化算法"
+      },
+      {
+        "name": "PerformanceMetric",
+        "description": "性能指标"
+      },
+      {
+        "name": "ApplicationDomain",
+        "description": "应用领域"
+      },
+      {
+        "name": "DataType",
+        "description": "数据类型"
+      },
+      {
+        "name": "Task",
+        "description": "计算任务"
+      }
+    ],
+    "relation_types": [
+      {
+        "name": "solves",
+        "description": "算法解决任务"
+      },
+      {
+        "name": "hasPerformance",
+        "description": "算法具有性能指标"
+      },
+      {
+        "name": "appliedTo",
+        "description": "算法应用于领域"
+      },
+      {
+        "name": "suitableFor",
+        "description": "算法适合数据类型"
+      },
+      {
+        "name": "optimizes",
+        "description": "优化算法优化目标"
+      },
+      {
+        "name": "basedOn",
+        "description": "算法基于理论或方法"
+      }
+    ]
+  },
+  "optimization_summary": {
+    "original_entities": 2,
+    "optimized_entities": 7,
+    "original_relations": 1,
+    "optimized_relations": 6,
+    "new_entities": [
+      "DeepLearningAlgorithm",
+      "TraditionalMLAlgorithm",
+      "OptimizationAlgorithm",
+      "PerformanceMetric",
+      "ApplicationDomain",
+      "DataType"
+    ],
+    "new_relations": [
+      "hasPerformance",
+      "appliedTo",
+      "suitableFor",
+      "optimizes",
+      "basedOn"
+    ]
+  }
+}

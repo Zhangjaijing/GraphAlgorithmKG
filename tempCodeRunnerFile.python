@@ -1,0 +1,7 @@
+from sentence_transformers import SentenceTransformer
+
+# 下载模型
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# 保存到本地目录
+model.save('C:/Users/User/Models/all-MiniLM-L6-v2')

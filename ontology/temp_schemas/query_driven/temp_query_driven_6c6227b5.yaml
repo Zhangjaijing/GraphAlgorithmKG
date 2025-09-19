@@ -1,0 +1,60 @@
+entity_types:
+  Chest:
+    aliases: []
+    description: 宝箱实体
+    examples: []
+    keywords: []
+    patterns: []
+  Key:
+    aliases: []
+    description: 钥匙实体
+    examples: []
+    keywords: []
+    patterns: []
+  Player:
+    aliases: []
+    description: 玩家实体
+    examples: []
+    keywords: []
+    patterns: []
+  Reward:
+    aliases: []
+    description: 奖励物品实体
+    examples: []
+    keywords: []
+    patterns: []
+metadata:
+  created_at: '2025-09-08T21:26:01.448698'
+  description: 根据用户查询意图生成的知识图谱Schema
+  is_temporary: true
+  name: 用户关系查询Schema
+  version: 1.0.0
+relation_types:
+  containsReward:
+    description: 包含奖励物品
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  obtainsKey:
+    description: 获得钥匙
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  opensChest:
+    description: 打开宝箱
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  unlocksChest:
+    description: 解锁宝箱
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

@@ -1,0 +1,98 @@
+{
+  "f849d472-134a-420e-998f-1c92c325cfa7": {
+    "session_id": "f849d472-134a-420e-998f-1c92c325cfa7",
+    "schema_id": "temp_query_driven_f849d472",
+    "schema_name": "用户定制Schema",
+    "creation_time": "2025-09-05T12:07:00.429909",
+    "last_access_time": "2025-09-05T12:07:00.429914",
+    "access_count": 0,
+    "is_persistent": true,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  },
+  "928c1edf-ceed-4746-9aae-1300509e5158": {
+    "session_id": "928c1edf-ceed-4746-9aae-1300509e5158",
+    "schema_id": "temp_merged_928c1edf",
+    "schema_name": "Merged_Schema_2_schemas",
+    "creation_time": "2025-09-08T11:37:55.681868",
+    "last_access_time": "2025-09-08T11:37:55.681873",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "merged"
+    }
+  },
+  "cdf91673-8a94-45cd-98dc-564f79d703ca": {
+    "session_id": "cdf91673-8a94-45cd-98dc-564f79d703ca",
+    "schema_id": "temp_merged_cdf91673",
+    "schema_name": "Merged_Schema_2_schemas",
+    "creation_time": "2025-09-08T11:38:58.049461",
+    "last_access_time": "2025-09-08T11:38:58.049465",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "merged"
+    }
+  },
+  "3f728cdd-cb42-44df-9f8a-b9594b67b65e": {
+    "session_id": "3f728cdd-cb42-44df-9f8a-b9594b67b65e",
+    "schema_id": "temp_query_driven_3f728cdd",
+    "schema_name": "知识图谱Schema",
+    "creation_time": "2025-09-08T11:39:01.655680",
+    "last_access_time": "2025-09-08T11:39:01.655684",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  },
+  "a6d3df38-7138-41bb-91fb-774cce8dcb62": {
+    "session_id": "a6d3df38-7138-41bb-91fb-774cce8dcb62",
+    "schema_id": "temp_query_driven_a6d3df38",
+    "schema_name": "水文监测系统知识图谱Schema",
+    "creation_time": "2025-09-08T21:25:57.689054",
+    "last_access_time": "2025-09-08T21:25:57.689058",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  },
+  "6c6227b5-e70e-462a-bec5-770cd7df7703": {
+    "session_id": "6c6227b5-e70e-462a-bec5-770cd7df7703",
+    "schema_id": "temp_query_driven_6c6227b5",
+    "schema_name": "用户关系查询Schema",
+    "creation_time": "2025-09-08T21:26:01.451827",
+    "last_access_time": "2025-09-08T21:26:01.451831",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  },
+  "81eb2a09-8303-445b-abcd-657f54745e24": {
+    "session_id": "81eb2a09-8303-445b-abcd-657f54745e24",
+    "schema_id": "temp_query_driven_81eb2a09",
+    "schema_name": "水文监测系统Schema",
+    "creation_time": "2025-09-09T11:33:33.874154",
+    "last_access_time": "2025-09-09T11:33:33.874158",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  },
+  "7d21e8db-15a9-48c3-88f3-7a014d38aa10": {
+    "session_id": "7d21e8db-15a9-48c3-88f3-7a014d38aa10",
+    "schema_id": "temp_query_driven_7d21e8db",
+    "schema_name": "用户关系查询Schema",
+    "creation_time": "2025-09-09T11:33:37.627247",
+    "last_access_time": "2025-09-09T11:33:37.627251",
+    "access_count": 0,
+    "is_persistent": false,
+    "metadata": {
+      "schema_type": "query_driven"
+    }
+  }
+}

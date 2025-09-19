@@ -1,0 +1,313 @@
+# 基于DODAF的状态变化时序知识图谱Schema
+name: "DODAF状态变化时序知识图谱"
+description: "基于DODAF架构的状态变化和时序关系建模Schema，支持动作、道具、容器、状态变化的时序知识图谱构建"
+version: "1.0.0"
+domain: "dodaf_state_change"
+created_at: "2025-09-08"
+
+# 实体类型定义
+entity_types:
+  # 动作类
+  - name: "动作"
+    description: "系统中执行的操作或行为"
+    color: "#FF6B6B"
+    examples: ["打开", "关闭", "获取", "放置", "激活"]
+    keywords: ["动作", "操作", "行为", "执行"]
+    attributes:
+      - name: "动作类型"
+        type: "string"
+        description: "动作的分类"
+      - name: "执行者"
+        type: "string"
+        description: "执行动作的主体"
+      - name: "执行时间"
+        type: "datetime"
+        description: "动作执行的时间"
+    
+  # 道具类
+  - name: "道具"
+    description: "系统中的物品或工具"
+    color: "#4ECDC4"
+    examples: ["钥匙", "工具", "武器", "材料"]
+    keywords: ["道具", "物品", "工具", "物件"]
+    attributes:
+      - name: "名称"
+        type: "string"
+        description: "道具的具体名称"
+      - name: "类型"
+        type: "string"
+        description: "道具的类别"
+      - name: "材质"
+        type: "string"
+        description: "道具的材质"
+      - name: "耐久度"
+        type: "integer"
+        description: "道具的耐久程度"
+    
+  - name: "钥匙"
+    description: "用于开启容器或门的道具"
+    parent: "道具"
+    color: "#45B7D1"
+    examples: ["青铜钥匙", "银钥匙", "万能钥匙"]
+    keywords: ["钥匙", "开启", "解锁"]
+    
+  # 容器类
+  - name: "容器"
+    description: "可以存放物品的对象"
+    color: "#96CEB4"
+    examples: ["宝箱", "箱子", "柜子", "仓库"]
+    keywords: ["容器", "存储", "箱子"]
+    attributes:
+      - name: "容量"
+        type: "integer"
+        description: "容器的存储容量"
+      - name: "材质"
+        type: "string"
+        description: "容器的制作材质"
+      - name: "安全等级"
+        type: "string"
+        description: "容器的安全防护等级"
+    
+  - name: "宝箱"
+    description: "存放贵重物品的特殊容器"
+    parent: "容器"
+    color: "#FFEAA7"
+    examples: ["木制宝箱", "铁制宝箱", "魔法宝箱"]
+    keywords: ["宝箱", "宝物", "珍贵"]
+
+  # 状态类
+  - name: "状态"
+    description: "对象或系统的状态"
+    color: "#DDA0DD"
+    examples: ["未获取", "已获取", "锁定", "开启", "激活"]
+    keywords: ["状态", "情况", "条件"]
+    attributes:
+      - name: "状态值"
+        type: "string"
+        description: "状态的具体值"
+      - name: "持续时间"
+        type: "duration"
+        description: "状态持续的时间"
+      - name: "稳定性"
+        type: "string"
+        description: "状态的稳定程度"
+    
+  - name: "获取状态"
+    description: "物品的获取状态"
+    parent: "状态"
+    color: "#B19CD9"
+    examples: ["未获取", "已获取", "部分获取"]
+    keywords: ["获取", "拥有", "持有"]
+    
+  - name: "锁定状态"
+    description: "容器或对象的锁定状态"
+    parent: "状态"
+    color: "#C44569"
+    examples: ["锁定", "解锁", "半锁定"]
+    keywords: ["锁定", "解锁", "封闭"]
+
+  # 结果类
+  - name: "结果"
+    description: "动作执行后的结果"
+    color: "#6C5CE7"
+    examples: ["成功", "失败", "部分成功", "异常"]
+    keywords: ["结果", "后果", "效果"]
+    attributes:
+      - name: "成功率"
+        type: "float"
+        description: "结果的成功概率"
+      - name: "影响范围"
+        type: "string"
+        description: "结果影响的范围"
+      - name: "持续效果"
+        type: "boolean"
+        description: "结果是否有持续效果"
+    
+  - name: "操作结果"
+    description: "操作动作的执行结果"
+    parent: "结果"
+    color: "#A29BFE"
+    examples: ["打开成功", "获取成功", "激活失败"]
+    keywords: ["操作", "执行", "完成"]
+
+  # 时序类
+  - name: "时序节点"
+    description: "时间序列中的节点"
+    color: "#FD79A8"
+    examples: ["开始节点", "中间节点", "结束节点"]
+    keywords: ["时序", "节点", "时间点"]
+    attributes:
+      - name: "时间戳"
+        type: "datetime"
+        description: "节点的时间戳"
+      - name: "序号"
+        type: "integer"
+        description: "在时序中的序号"
+      - name: "重要性"
+        type: "string"
+        description: "节点的重要程度"
+
+  # 条件类
+  - name: "条件"
+    description: "执行动作所需的前置条件"
+    color: "#00B894"
+    examples: ["拥有钥匙", "达到等级", "完成任务"]
+    keywords: ["条件", "前提", "要求"]
+    attributes:
+      - name: "条件类型"
+        type: "string"
+        description: "条件的分类"
+      - name: "必要性"
+        type: "string"
+        description: "条件的必要程度"
+
+# 关系类型定义
+relation_types:
+  # 动作关系
+  - name: "执行"
+    description: "主体执行某个动作"
+    source_type: "动作"
+    target_type: "道具"
+    examples: ["打开动作 执行 钥匙"]
+    
+  - name: "作用于"
+    description: "动作作用于某个对象"
+    source_type: "动作"
+    target_type: "容器"
+    examples: ["打开动作 作用于 宝箱"]
+    
+  - name: "产生"
+    description: "动作产生某种结果"
+    source_type: "动作"
+    target_type: "结果"
+    examples: ["打开动作 产生 打开成功"]
+
+  # 状态变化关系
+  - name: "状态转换"
+    description: "从一个状态转换到另一个状态"
+    source_type: "状态"
+    target_type: "状态"
+    examples: ["锁定状态 状态转换 解锁状态"]
+    
+  - name: "触发状态变化"
+    description: "动作触发状态的变化"
+    source_type: "动作"
+    target_type: "状态"
+    examples: ["打开动作 触发状态变化 解锁状态"]
+    
+  - name: "具有状态"
+    description: "对象具有某种状态"
+    source_type: "道具"
+    target_type: "状态"
+    examples: ["钥匙 具有状态 已获取状态"]
+
+  # 时序关系
+  - name: "时序前置"
+    description: "在时间序列中的前后关系"
+    source_type: "时序节点"
+    target_type: "时序节点"
+    examples: ["获取钥匙节点 时序前置 打开宝箱节点"]
+    
+  - name: "时序并发"
+    description: "在时间序列中的并发关系"
+    source_type: "时序节点"
+    target_type: "时序节点"
+    examples: ["检查状态节点 时序并发 记录日志节点"]
+    
+  - name: "发生在"
+    description: "动作发生在某个时序节点"
+    source_type: "动作"
+    target_type: "时序节点"
+    examples: ["打开动作 发生在 时序节点1"]
+
+  # 条件关系
+  - name: "需要条件"
+    description: "动作需要满足某个条件"
+    source_type: "动作"
+    target_type: "条件"
+    examples: ["打开动作 需要条件 拥有钥匙条件"]
+    
+  - name: "满足条件"
+    description: "状态满足某个条件"
+    source_type: "状态"
+    target_type: "条件"
+    examples: ["已获取状态 满足条件 拥有钥匙条件"]
+
+  # 因果关系
+  - name: "导致"
+    description: "一个事件导致另一个事件"
+    source_type: "动作"
+    target_type: "动作"
+    examples: ["获取钥匙 导致 打开宝箱"]
+    
+  - name: "影响"
+    description: "一个状态影响另一个状态"
+    source_type: "状态"
+    target_type: "状态"
+    examples: ["钥匙已获取状态 影响 宝箱可开启状态"]
+
+  # 依赖关系
+  - name: "依赖"
+    description: "一个对象依赖另一个对象"
+    source_type: "容器"
+    target_type: "道具"
+    examples: ["宝箱 依赖 钥匙"]
+    
+  - name: "匹配"
+    description: "道具与容器的匹配关系"
+    source_type: "道具"
+    target_type: "容器"
+    examples: ["青铜钥匙 匹配 青铜宝箱"]
+
+# 状态机定义
+state_machines:
+  - name: "道具获取状态机"
+    states: ["未发现", "已发现", "获取中", "已获取", "已使用"]
+    transitions:
+      - from: "未发现"
+        to: "已发现"
+        trigger: "发现动作"
+      - from: "已发现"
+        to: "获取中"
+        trigger: "获取动作"
+      - from: "获取中"
+        to: "已获取"
+        trigger: "获取成功"
+      - from: "已获取"
+        to: "已使用"
+        trigger: "使用动作"
+        
+  - name: "容器状态机"
+    states: ["锁定", "解锁中", "已解锁", "已打开", "已关闭"]
+    transitions:
+      - from: "锁定"
+        to: "解锁中"
+        trigger: "使用钥匙"
+      - from: "解锁中"
+        to: "已解锁"
+        trigger: "解锁成功"
+      - from: "已解锁"
+        to: "已打开"
+        trigger: "打开动作"
+
+# 推理规则
+inference_rules:
+  - name: "状态传播规则"
+    description: "如果A的状态改变，且A与B有依赖关系，则B的状态可能也会改变"
+    
+  - name: "时序因果规则"
+    description: "如果动作A在时序上先于动作B，且A的结果影响B的条件，则A可能导致B"
+    
+  - name: "条件满足规则"
+    description: "只有当所有必要条件都满足时，动作才能成功执行"
+
+# 验证约束
+constraints:
+  - name: "时序一致性"
+    description: "时序关系必须保持一致，不能出现循环依赖"
+    
+  - name: "状态合理性"
+    description: "对象的状态变化必须符合状态机定义"
+    
+  - name: "条件完整性"
+    description: "每个动作都必须有明确的前置条件和结果"

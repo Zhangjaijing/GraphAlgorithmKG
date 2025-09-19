@@ -1,0 +1,484 @@
+{
+  "stage_name": "final_kg",
+  "stage_number": 5,
+  "timestamp": "2025-09-09T11:29:37.905978",
+  "description": "最终知识图谱，包含11个实体，8个关系",
+  "input_summary": "实体和关系数据",
+  "output_summary": "完整知识图谱: 11实体, 8关系, Schema: ../schemas/general/schema_config.yaml",
+  "data": {
+    "metadata": {
+      "schema": "../schemas/general/schema_config.yaml",
+      "source_document": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+      "created_at": "2025-09-09T11:29:37.905175",
+      "processing_time": 5.953871965408325,
+      "builder_version": "3.0.0"
+    },
+    "entities": [
+      {
+        "id": "entity_8c5f70f8",
+        "name": "深度学习",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 3.719329833984375e-05,
+          "original_name": "深度学习",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_6507dde3",
+        "name": "循环神经网络(RNN)",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 1.0967254638671875e-05,
+          "original_name": "循环神经网络(RNN)",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_a9ab2651",
+        "name": "自然语言处理任务",
+        "type": "Task",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 4.029273986816406e-05,
+          "original_name": "自然语言处理任务",
+          "type_description": "研究/应用任务",
+          "aliases": [
+            "任务",
+            "问题",
+            "应用"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_0b7e67b6",
+        "name": "SVM",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 7.867813110351562e-06,
+          "original_name": "SVM",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_5fd69be7",
+        "name": "卷积神经网络(CNN)",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 9.059906005859375e-06,
+          "original_name": "卷积神经网络(CNN)",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_4afa80e7",
+        "name": "Algorithm",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 8.106231689453125e-06,
+          "original_name": "Algorithm",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_cb00e27a",
+        "name": "小数据集",
+        "type": "Task",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 2.2649765014648438e-05,
+          "original_name": "小数据集",
+          "type_description": "研究/应用任务",
+          "aliases": [
+            "任务",
+            "问题",
+            "应用"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_83a73b62",
+        "name": "图像识别任务",
+        "type": "Task",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 2.2172927856445312e-05,
+          "original_name": "图像识别任务",
+          "type_description": "研究/应用任务",
+          "aliases": [
+            "任务",
+            "问题",
+            "应用"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_3e9adbb1",
+        "name": "Paradigm",
+        "type": "Paradigm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 9.5367431640625e-07,
+          "original_name": "Paradigm",
+          "type_description": "解决问题的通用范式或决策框架",
+          "aliases": [
+            "范式",
+            "方法",
+            "策略",
+            "角色",
+            "利益相关者"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_ac2c8f13",
+        "name": "好",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 5.984306335449219e-05,
+          "original_name": "好"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_72697402",
+        "name": "支持向量机(SVM)",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 9.059906005859375e-06,
+          "original_name": "支持向量机(SVM)",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "relations": [
+      {
+        "id": "rel_103163c4",
+        "subject_id": "entity_8c5f70f8",
+        "subject_name": "深度学习",
+        "predicate": "is_instance_of",
+        "object_id": "entity_3e9adbb1",
+        "object_name": "Paradigm",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 0,
+          "relation_description": "实例关系",
+          "expected_subject_types": [
+            "*"
+          ],
+          "expected_object_types": [
+            "Paradigm",
+            "Algorithm",
+            "Technique",
+            "Framework",
+            "Task",
+            "Metric"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_c1a1c0bd",
+        "subject_id": "entity_5fd69be7",
+        "subject_name": "卷积神经网络(CNN)",
+        "predicate": "is_instance_of",
+        "object_id": "entity_4afa80e7",
+        "object_name": "Algorithm",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 1,
+          "relation_description": "实例关系",
+          "expected_subject_types": [
+            "*"
+          ],
+          "expected_object_types": [
+            "Paradigm",
+            "Algorithm",
+            "Technique",
+            "Framework",
+            "Task",
+            "Metric"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_d65c03f3",
+        "subject_id": "entity_5fd69be7",
+        "subject_name": "卷积神经网络(CNN)",
+        "predicate": "used_in",
+        "object_id": "entity_83a73b62",
+        "object_name": "图像识别任务",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 2,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_5b9cf7a6",
+        "subject_id": "entity_6507dde3",
+        "subject_name": "循环神经网络(RNN)",
+        "predicate": "is_instance_of",
+        "object_id": "entity_4afa80e7",
+        "object_name": "Algorithm",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 3,
+          "relation_description": "实例关系",
+          "expected_subject_types": [
+            "*"
+          ],
+          "expected_object_types": [
+            "Paradigm",
+            "Algorithm",
+            "Technique",
+            "Framework",
+            "Task",
+            "Metric"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_f7124ee7",
+        "subject_id": "entity_6507dde3",
+        "subject_name": "循环神经网络(RNN)",
+        "predicate": "used_in",
+        "object_id": "entity_a9ab2651",
+        "object_name": "自然语言处理任务",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 4,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_7fb2ad76",
+        "subject_id": "entity_72697402",
+        "subject_name": "支持向量机(SVM)",
+        "predicate": "is_instance_of",
+        "object_id": "entity_4afa80e7",
+        "object_name": "Algorithm",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 5,
+          "relation_description": "实例关系",
+          "expected_subject_types": [
+            "*"
+          ],
+          "expected_object_types": [
+            "Paradigm",
+            "Algorithm",
+            "Technique",
+            "Framework",
+            "Task",
+            "Metric"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_2240fcd0",
+        "subject_id": "entity_72697402",
+        "subject_name": "支持向量机(SVM)",
+        "predicate": "used_in",
+        "object_id": "entity_cb00e27a",
+        "object_name": "小数据集",
+        "properties": {
+          "extraction_confidence": 0.9,
+          "triple_index": 6,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "rel_a2373de9",
+        "subject_id": "entity_0b7e67b6",
+        "subject_name": "SVM",
+        "predicate": "used_in",
+        "object_id": "entity_ac2c8f13",
+        "object_name": "好",
+        "properties": {
+          "extraction_confidence": 0.8,
+          "triple_index": 7,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.8,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmp40iwdds8.txt",
+        "created_at": "2025-09-09T11:29:37.903032",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "statistics": {
+      "total_entities": 11,
+      "total_relations": 8,
+      "entity_type_distribution": {
+        "Algorithm": 6,
+        "Task": 3,
+        "Paradigm": 1,
+        "Unknown": 1
+      },
+      "relation_type_distribution": {
+        "is_instance_of": 4,
+        "used_in": 4
+      },
+      "average_entity_confidence": 0.8181818181818183,
+      "average_relation_confidence": 0.8875000000000001,
+      "extraction_method_breakdown": {
+        "llm_extraction": {
+          "count": 7,
+          "avg_confidence": 0.9000000000000001
+        },
+        "spatial_pattern": {
+          "count": 1,
+          "avg_confidence": 0.8
+        }
+      },
+      "rule_extraction_count": 1,
+      "llm_extraction_count": 7,
+      "extraction_methods_used": [
+        "rule_extraction",
+        "llm_extraction"
+      ],
+      "triple_extraction_time": 5.890474081039429
+    }
+  }
+}

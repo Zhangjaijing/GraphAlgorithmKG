@@ -1,0 +1,60 @@
+entity_types:
+  Algorithm:
+    aliases: []
+    description: 算法实体
+    examples: []
+    keywords: []
+    patterns: []
+  Model:
+    aliases: []
+    description: 模型类型
+    examples: []
+    keywords: []
+    patterns: []
+  Performance:
+    aliases: []
+    description: 性能指标
+    examples: []
+    keywords: []
+    patterns: []
+  Task:
+    aliases: []
+    description: 任务类型
+    examples: []
+    keywords: []
+    patterns: []
+metadata:
+  author: system
+  created_at: '2025-09-05T12:07:00.606664'
+  description: 基于用户查询生成的Schema
+  name: 用户定制Schema
+  version: 1.0.0
+relation_types:
+  hasPerformance:
+    description: 具有性能
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  improvesPerformance:
+    description: 提高性能
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  isTypeOf:
+    description: 是一种模型
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  isUsedFor:
+    description: 用于任务
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

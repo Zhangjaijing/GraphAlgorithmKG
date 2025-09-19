@@ -1,0 +1,225 @@
+# Schema系统配置文件
+# 统一管理所有Schema相关的配置参数
+
+# 版本管理配置
+version_management:
+  # 版本号生成策略
+  version_strategy: "semantic"  # semantic, timestamp, incremental
+  
+  # 版本保留策略
+  retention_policy:
+    keep_versions: 10  # 每个Schema保留的版本数
+    cleanup_interval: 86400  # 清理间隔（秒）
+    backup_old_versions: true  # 是否备份旧版本
+  
+  # 快照配置
+  snapshots:
+    enabled: true
+    auto_create: true
+    compression: false
+
+# 持久化配置
+persistence:
+  # 会话管理
+  session_timeout: 86400  # 会话超时时间（秒）
+  max_temp_schemas: 100   # 最大临时Schema数量
+  auto_cleanup: true      # 自动清理过期Schema
+  
+  # 存储路径
+  storage_paths:
+    static_schemas: "ontology/schemas/static"
+    dynamic_schemas: "ontology/schemas/dynamic"
+    temp_schemas: "ontology/temp_schemas"
+    versions: "ontology/versions"
+    sessions: "ontology/sessions"
+
+# 动态发现配置
+dynamic_discovery:
+  # 问题驱动发现
+  query_driven:
+    enabled: true
+    confidence_threshold: 0.7
+    max_concepts_per_query: 20
+    llm_model: "default"
+  
+  # 数据驱动发现
+  data_driven:
+    enabled: true
+    min_frequency: 3
+    similarity_threshold: 0.8
+    clustering_method: "hierarchical"
+  
+  # RAG增强发现
+  rag_enhanced:
+    enabled: false
+    knowledge_base_path: ""
+    retrieval_top_k: 5
+
+# Schema演化配置
+schema_evolution:
+  # 增量演化
+  incremental:
+    enabled: true
+    auto_confirm_threshold: 0.9
+    max_new_concepts_per_iteration: 10
+    concept_drift_detection: true
+  
+  # 用户反馈演化
+  user_feedback:
+    enabled: true
+    feedback_weight: 0.8
+    min_feedback_count: 3
+    learning_rate: 0.1
+
+# Schema合并配置
+schema_merging:
+  # 合并策略
+  default_strategy: "intelligent"  # intelligent, conservative, aggressive
+  
+  # 冲突检测
+  conflict_detection:
+    similarity_threshold: 0.8
+    auto_resolve_threshold: 0.9
+    semantic_analysis: true
+  
+  # 合并优化
+  optimization:
+    remove_duplicates: true
+    merge_similar_concepts: true
+    optimize_hierarchy: true
+
+# 交互配置
+interaction:
+  # 确认管理
+  confirmation:
+    mode: "cli"  # cli, web, auto
+    timeout: 300  # 确认超时时间（秒）
+    default_action: "skip"  # skip, accept, reject
+  
+  # 反馈收集
+  feedback:
+    enabled: true
+    collection_method: "interactive"  # interactive, batch, automatic
+    feedback_types: ["quality", "relevance", "completeness"]
+
+# 质量控制配置
+quality_control:
+  # 验证规则
+  validation:
+    min_entity_types: 2
+    min_relation_types: 1
+    max_entity_types: 100
+    max_relation_types: 50
+    require_descriptions: true
+    require_examples: false
+  
+  # 一致性检查
+  consistency:
+    check_naming_conventions: true
+    check_semantic_consistency: true
+    check_type_constraints: true
+    check_circular_dependencies: false
+
+# 性能配置
+performance:
+  # 缓存配置
+  caching:
+    enabled: true
+    cache_size: 1000
+    cache_ttl: 3600  # 缓存生存时间（秒）
+  
+  # 并发配置
+  concurrency:
+    max_workers: 4
+    batch_size: 100
+    timeout: 300
+  
+  # 内存管理
+  memory:
+    max_memory_usage: "1GB"
+    gc_threshold: 0.8
+    cleanup_interval: 1800
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # 日志文件
+  files:
+    schema_operations: "logs/schema_operations.log"
+    version_management: "logs/version_management.log"
+    merge_operations: "logs/merge_operations.log"
+    error_log: "logs/schema_errors.log"
+  
+  # 日志轮转
+  rotation:
+    max_size: "10MB"
+    backup_count: 5
+
+# 监控配置
+monitoring:
+  # 指标收集
+  metrics:
+    enabled: true
+    collection_interval: 60  # 秒
+    retention_days: 30
+  
+  # 统计信息
+  statistics:
+    track_usage: true
+    track_performance: true
+    track_quality: true
+    export_interval: 3600  # 秒
+
+# 安全配置
+security:
+  # 访问控制
+  access_control:
+    enabled: false
+    require_authentication: false
+    role_based_access: false
+  
+  # 数据保护
+  data_protection:
+    encrypt_sensitive_data: false
+    audit_trail: true
+    backup_encryption: false
+
+# 扩展配置
+extensions:
+  # 插件系统
+  plugins:
+    enabled: false
+    plugin_directory: "ontology/plugins"
+    auto_load: false
+  
+  # 自定义发现器
+  custom_discoverers:
+    enabled: true
+    discoverer_directory: "ontology/discoverers"
+  
+  # 自定义演化器
+  custom_evolvers:
+    enabled: true
+    evolver_directory: "ontology/evolvers"
+
+# 实验性功能
+experimental:
+  # 机器学习增强
+  ml_enhancement:
+    enabled: false
+    model_path: ""
+    training_data_path: ""
+  
+  # 自动优化
+  auto_optimization:
+    enabled: false
+    optimization_interval: 86400  # 秒
+    optimization_strategies: ["structure", "performance", "quality"]
+  
+  # 分布式处理
+  distributed_processing:
+    enabled: false
+    cluster_nodes: []
+    coordination_service: "zookeeper"

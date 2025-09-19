@@ -1,0 +1,242 @@
+# 时空知识图谱Schema - 地理监测领域
+name: "地理监测时空知识图谱"
+description: "专门用于地理要素监测的时空知识图谱Schema，支持水系、流域、监测站等地理要素的时空关系建模"
+version: "1.0.0"
+domain: "geospatial_monitoring"
+created_at: "2025-09-08"
+
+# 实体类型定义
+entity_types:
+  # 地理要素类
+  - name: "地理要素"
+    description: "地理空间中的基本要素"
+    color: "#2E8B57"
+    examples: ["长江", "黄河流域", "三峡监测站"]
+    keywords: ["地理", "要素", "空间"]
+    
+  - name: "水系"
+    description: "水体系统，包括河流、湖泊等水体"
+    parent: "地理要素"
+    color: "#4682B4"
+    examples: ["长江水系", "黄河水系", "珠江水系"]
+    keywords: ["水系", "河流", "水体"]
+    
+  - name: "河流"
+    description: "流动的水体"
+    parent: "水系"
+    color: "#1E90FF"
+    examples: ["长江", "黄河", "珠江"]
+    keywords: ["河流", "江", "河"]
+    
+  - name: "流域"
+    description: "河流的集水区域"
+    parent: "地理要素"
+    color: "#32CD32"
+    examples: ["长江流域", "黄河流域", "珠江流域"]
+    keywords: ["流域", "集水区", "水域"]
+    
+  - name: "监测站"
+    description: "用于监测地理要素的站点"
+    parent: "地理要素"
+    color: "#FF6347"
+    examples: ["三峡监测站", "黄河口监测站", "洞庭湖监测站"]
+    keywords: ["监测站", "观测站", "站点"]
+
+  # 空间类
+  - name: "空间类"
+    description: "空间相关的概念类"
+    color: "#8A2BE2"
+    examples: ["地理位置", "空间范围", "坐标系统"]
+    keywords: ["空间", "位置", "范围"]
+    
+  - name: "几何形状"
+    description: "地理要素的几何表示"
+    parent: "空间类"
+    color: "#9370DB"
+    examples: ["点", "线", "面"]
+    keywords: ["几何", "形状", "点线面"]
+
+  # 事件类
+  - name: "事件类"
+    description: "时空中发生的事件"
+    color: "#FF4500"
+    examples: ["洪水事件", "干旱事件", "监测事件"]
+    keywords: ["事件", "发生", "现象"]
+    
+  - name: "监测事件"
+    description: "监测活动相关的事件"
+    parent: "事件类"
+    color: "#FF6347"
+    examples: ["水位监测", "流量测量", "水质检测"]
+    keywords: ["监测", "测量", "检测"]
+
+  # 时间类
+  - name: "时间类"
+    description: "时间相关的概念"
+    color: "#DAA520"
+    examples: ["时间点", "时间段", "持续时间"]
+    keywords: ["时间", "时刻", "期间"]
+    
+  - name: "持续长度"
+    description: "事件或过程的持续时间长度"
+    parent: "时间类"
+    color: "#B8860B"
+    examples: ["3小时", "2天", "1个月"]
+    keywords: ["持续", "长度", "时长"]
+    
+  - name: "时间段"
+    description: "具有开始和结束的时间区间"
+    parent: "时间类"
+    color: "#CD853F"
+    examples: ["2024年1月", "汛期", "枯水期"]
+    keywords: ["时间段", "区间", "期间"]
+    
+  - name: "时间点"
+    description: "特定的时间时刻"
+    parent: "时间类"
+    color: "#DEB887"
+    examples: ["2024-01-01 08:00", "洪峰时刻", "监测时刻"]
+    keywords: ["时间点", "时刻", "瞬间"]
+    
+  - name: "时间粒度"
+    description: "时间的精度单位"
+    parent: "时间类"
+    color: "#F4A460"
+    examples: ["秒", "分", "时", "天"]
+    keywords: ["粒度", "精度", "单位"]
+
+  # 测量类
+  - name: "测量类"
+    description: "测量和观测相关的概念"
+    color: "#20B2AA"
+    examples: ["水位", "流量", "降水量"]
+    keywords: ["测量", "观测", "数值"]
+    
+  - name: "降水量"
+    description: "降水的数量测量"
+    parent: "测量类"
+    color: "#48D1CC"
+    examples: ["日降水量", "月降水量", "年降水量"]
+    keywords: ["降水", "雨量", "降雨"]
+    
+  - name: "径流量"
+    description: "河流的流量测量"
+    parent: "测量类"
+    color: "#00CED1"
+    examples: ["瞬时流量", "日平均流量", "年径流量"]
+    keywords: ["径流", "流量", "流速"]
+    
+  - name: "水位"
+    description: "水体的高度测量"
+    parent: "测量类"
+    color: "#5F9EA0"
+    examples: ["实时水位", "警戒水位", "历史最高水位"]
+    keywords: ["水位", "水深", "高度"]
+
+# 关系类型定义
+relation_types:
+  # 基本关系
+  - name: "具备"
+    description: "实体具备某种属性或特征"
+    source_type: "地理要素"
+    target_type: "几何形状"
+    examples: ["长江 具备 线状几何", "流域 具备 面状几何"]
+    
+  - name: "属于"
+    description: "实体属于某个类别"
+    source_type: "地理要素"
+    target_type: "空间类"
+    examples: ["监测站 属于 空间类", "河流 属于 空间类"]
+
+  # 空间关系
+  - name: "空间相关"
+    description: "空间上的相关性"
+    source_type: "空间类"
+    target_type: "事件类"
+    examples: ["监测站位置 空间相关 监测事件"]
+    
+  - name: "空间相关_测量"
+    description: "空间与测量的相关性"
+    source_type: "空间类"
+    target_type: "测量类"
+    examples: ["流域范围 空间相关 径流量"]
+
+  # 事件关系
+  - name: "事件相关"
+    description: "事件之间的相关性"
+    source_type: "事件类"
+    target_type: "时间类"
+    examples: ["洪水事件 事件相关 汛期"]
+    
+  - name: "事件相关_测量"
+    description: "事件与测量的相关性"
+    source_type: "事件类"
+    target_type: "测量类"
+    examples: ["监测事件 事件相关 水位测量"]
+
+  # 时间关系
+  - name: "时间相关"
+    description: "时间上的相关性"
+    source_type: "时间类"
+    target_type: "事件类"
+    examples: ["汛期 时间相关 洪水事件"]
+    
+  - name: "时间相关_测量"
+    description: "时间与测量的相关性"
+    source_type: "时间类"
+    target_type: "测量类"
+    examples: ["监测时刻 时间相关 水位值"]
+    
+  - name: "粒度相关"
+    description: "时间粒度的相关性"
+    source_type: "时间类"
+    target_type: "时间粒度"
+    examples: ["监测频率 粒度相关 小时"]
+
+  # 地理关系
+  - name: "方向关系"
+    description: "地理要素之间的方向关系"
+    source_type: "地理要素"
+    target_type: "地理要素"
+    examples: ["上游监测站 方向关系 下游监测站"]
+    
+  - name: "拓扑关系"
+    description: "地理要素之间的拓扑关系"
+    source_type: "地理要素"
+    target_type: "地理要素"
+    examples: ["河流 拓扑关系 流域", "监测站 拓扑关系 河流"]
+    
+  - name: "距离关系"
+    description: "地理要素之间的距离关系"
+    source_type: "地理要素"
+    target_type: "地理要素"
+    examples: ["监测站A 距离关系 监测站B"]
+
+  # 层次关系
+  - name: "对象概念子类"
+    description: "对象概念的子类关系"
+    source_type: "地理要素"
+    target_type: "地理要素"
+    examples: ["河流 对象概念子类 水系"]
+
+# 推理规则
+inference_rules:
+  - name: "空间传递性"
+    description: "如果A属于B，B空间相关C，则A可能空间相关C"
+    
+  - name: "时间因果性"
+    description: "如果事件A时间相关时间T1，事件B时间相关时间T2，且T1<T2，则A可能影响B"
+    
+  - name: "测量一致性"
+    description: "同一地理要素在同一时间的测量值应该一致"
+
+# 验证约束
+constraints:
+  - name: "几何一致性"
+    description: "地理要素的几何形状必须与其类型一致"
+    
+  - name: "时间顺序性"
+    description: "时间点必须符合时间顺序"
+    
+  - name: "空间合理性"
+    description: "空间关系必须符合地理常识"

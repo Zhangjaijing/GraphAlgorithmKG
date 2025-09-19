@@ -1,0 +1,73 @@
+entity_types:
+  FloodEvent:
+    aliases: []
+    description: 洪水事件实体
+    examples: []
+    keywords: []
+    patterns: []
+  FlowRate:
+    aliases: []
+    description: 流量数据实体
+    examples: []
+    keywords: []
+    patterns: []
+  MonitoringStation:
+    aliases: []
+    description: 监测站点实体
+    examples: []
+    keywords: []
+    patterns: []
+  WaterLevel:
+    aliases: []
+    description: 水位数据实体
+    examples: []
+    keywords: []
+    patterns: []
+  WaterQuality:
+    aliases: []
+    description: 水质数据实体
+    examples: []
+    keywords: []
+    patterns: []
+metadata:
+  created_at: '2025-09-09T11:33:33.870764'
+  description: 描述水文监测系统中的关键实体和关系类型
+  is_temporary: true
+  name: 水文监测系统Schema
+  version: 1.0.0
+relation_types:
+  hasFloodEvent:
+    description: 具有洪水事件
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  monitors:
+    description: 监测
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  records:
+    description: 记录
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  spatialCorrelation:
+    description: 空间相关性
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  temporalCorrelation:
+    description: 时间相关性
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

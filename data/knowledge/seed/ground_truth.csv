@@ -1,0 +1,15 @@
+source_entity,target_entity
+Ant_Colony,Ant_Colony
+Pheromone_Trail,Pheromone_Trail
+Global_Search_Capability,Global_Search_Capability
+Metric,Metric
+Combinatorial_Optimization,Combinatorial_Optimization
+Greedy_Search,Greedy_Search
+Technique,Technique
+Task,Task
+Path_Optimization,Path_Optimization
+Stigmergy,Stigmergy
+Paradigm,Paradigm
+Positive_Feedback,Positive_Feedback
+Traveling_Salesman_Problem,Traveling_Salesman_Problem
+Vehicle_Routing_Problem,Vehicle_Routing_Problem

@@ -1,0 +1,96 @@
+{
+  "scenario": "场景3: Schema自动合并",
+  "trigger_condition": "多个相似Schema冲突",
+  "user_input": {
+    "conflicting_schemas": [
+      {
+        "name": "算法性能Schema",
+        "description": "专注于算法性能分析",
+        "entity_types": [
+          {
+            "name": "Algorithm",
+            "description": "算法实体",
+            "examples": ["CNN", "RNN", "SVM"],
+            "keywords": ["algorithm", "algo"]
+          },
+          {
+            "name": "Performance",
+            "description": "性能指标",
+            "examples": ["accuracy", "speed", "memory"],
+            "keywords": ["performance", "metric"]
+          },
+          {
+            "name": "Dataset",
+            "description": "数据集",
+            "examples": ["ImageNet", "MNIST"],
+            "keywords": ["dataset", "data"]
+          }
+        ],
+        "relation_types": [
+          {
+            "name": "achieves",
+            "description": "算法达到性能"
+          },
+          {
+            "name": "tested_on",
+            "description": "在数据集上测试"
+          }
+        ]
+      },
+      {
+        "name": "计算方法Schema",
+        "description": "专注于计算方法和技术",
+        "entity_types": [
+          {
+            "name": "ComputationMethod",
+            "description": "计算方法",
+            "examples": ["深度学习", "机器学习", "统计方法"],
+            "keywords": ["method", "computation"]
+          },
+          {
+            "name": "Technique",
+            "description": "技术手段",
+            "examples": ["优化", "正则化", "集成"],
+            "keywords": ["technique", "approach"]
+          },
+          {
+            "name": "Evaluation",
+            "description": "评估方式",
+            "examples": ["交叉验证", "留出法"],
+            "keywords": ["evaluation", "validation"]
+          }
+        ],
+        "relation_types": [
+          {
+            "name": "uses",
+            "description": "方法使用技术"
+          },
+          {
+            "name": "evaluated_by",
+            "description": "通过方式评估"
+          }
+        ]
+      }
+    ],
+    "conflict_document": {
+      "title": "机器学习算法的计算方法研究",
+      "content": "本文研究了各种机器学习算法的计算方法。深度学习算法如CNN和RNN采用了先进的计算技术，在ImageNet数据集上达到了95%的准确率。这些算法使用了优化技术来提升性能，并通过交叉验证进行评估。支持向量机等传统方法也展现了良好的性能表现。"
+    }
+  },
+  "expected_system_behavior": [
+    "语义对齐",
+    "冲突解决",
+    "用户选择"
+  ],
+  "expected_output": {
+    "schema_type": "合并后的统一Schema",
+    "should_contain": [
+      "合并Algorithm和ComputationMethod为统一概念",
+      "合并Performance和Evaluation为统一概念",
+      "保留Dataset实体类型",
+      "保留Technique实体类型",
+      "统一的关系类型"
+    ]
+  },
+  "test_timestamp": "2025-01-05T12:00:00Z"
+}

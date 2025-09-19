@@ -1,0 +1,167 @@
+{
+  "stage_name": "entity_inference",
+  "stage_number": 4,
+  "timestamp": "2025-09-08T21:25:57.755483",
+  "description": "实体推断和关系构建，生成5个实体，3个关系",
+  "input_summary": "3 个三元组",
+  "output_summary": "5 个实体, 3 个关系, 1 种实体类型",
+  "data": {
+    "entities": [
+      {
+        "id": "entity_63955444",
+        "name": "长江流域水文监测系统",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 0.00011110305786132812,
+          "original_name": "长江流域水文监测系统"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "entity_a27bdc58",
+        "name": "6小",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 5.602836608886719e-05,
+          "original_name": "6小"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "entity_63c9b3bc",
+        "name": "5米",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 5.1975250244140625e-05,
+          "original_name": "5米"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "entity_4caf8b40",
+        "name": "升",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 7.605552673339844e-05,
+          "original_name": "升"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "entity_a17b38cc",
+        "name": "长江流域水文监测系统包含多个监测站点",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 6.198883056640625e-05,
+          "original_name": "长江流域水文监测系统包含多个监测站点"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      }
+    ],
+    "relations": [
+      {
+        "id": "rel_d5e1dbed",
+        "subject_id": "entity_63c9b3bc",
+        "subject_name": "5米",
+        "predicate": "is_instance_of",
+        "object_id": "entity_a27bdc58",
+        "object_name": "6小",
+        "properties": {
+          "extraction_confidence": 0.8,
+          "triple_index": 0,
+          "relation_description": "实例关系",
+          "expected_subject_types": [
+            "*"
+          ],
+          "expected_object_types": [
+            "Paradigm",
+            "Algorithm",
+            "Technique",
+            "Framework",
+            "Task",
+            "Metric"
+          ]
+        },
+        "confidence": 0.8,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "rel_de45ccfe",
+        "subject_id": "entity_a17b38cc",
+        "subject_name": "长江流域水文监测系统包含多个监测站点",
+        "predicate": "used_in",
+        "object_id": "entity_4caf8b40",
+        "object_name": "升",
+        "properties": {
+          "extraction_confidence": 0.8,
+          "triple_index": 1,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.8,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      },
+      {
+        "id": "rel_0805c8e1",
+        "subject_id": "entity_63955444",
+        "subject_name": "长江流域水文监测系统",
+        "predicate": "implements",
+        "object_id": "entity_4caf8b40",
+        "object_name": "升",
+        "properties": {
+          "extraction_confidence": 0.7,
+          "triple_index": 2,
+          "relation_description": "技术实现算法",
+          "expected_subject_types": [
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Algorithm"
+          ]
+        },
+        "confidence": 0.7,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpb2e5q7xk.txt",
+        "created_at": "2025-09-08T21:25:57.754683",
+        "schema": "dynamic_水文监测系统知识图谱schema.yaml"
+      }
+    ],
+    "entity_type_distribution": {
+      "Unknown": 5
+    },
+    "inference_statistics": {
+      "total_entities": 5,
+      "total_relations": 3,
+      "unique_entity_types": 1
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "processing_summary": {
+    "total_time": 7.338261127471924,
+    "schema_used": "../schemas/general/schema_config.yaml",
+    "extraction_methods": [
+      "rule_extraction",
+      "llm_extraction"
+    ],
+    "quality_metrics": {
+      "entity_count": 2,
+      "relation_count": 1,
+      "avg_entity_confidence": 0.45,
+      "avg_relation_confidence": 0.8
+    }
+  }
+}

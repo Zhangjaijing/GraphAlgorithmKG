@@ -1,0 +1,51 @@
+entity_types:
+  Algorithm:
+    aliases: []
+    description: 算法实体
+    examples:
+    - CNN
+    - RNN
+    keywords:
+    - algorithm
+    - algo
+    patterns: []
+  Model:
+    aliases: []
+    description: 训练好的模型
+    examples:
+    - trained_cnn
+    keywords:
+    - model
+    - trained
+    patterns: []
+  Performance:
+    aliases: []
+    description: 性能指标
+    examples:
+    - accuracy
+    - speed
+    keywords:
+    - performance
+    - metric
+    patterns: []
+metadata:
+  created_at: '2025-09-08T11:37:55.679608'
+  description: 合并了2个Schema的结果
+  is_temporary: true
+  name: Merged_Schema_2_schemas
+  version: 1.0.0
+relation_types:
+  achieves:
+    description: 算法达到性能
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'
+  trains:
+    description: 训练模型
+    examples: []
+    object_types:
+    - '*'
+    subject_types:
+    - '*'

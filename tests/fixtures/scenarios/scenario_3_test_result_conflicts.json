@@ -1,0 +1,115 @@
+{
+  "scenario": "场景3测试结果(有冲突版本)",
+  "timestamp": "2025-01-05T12:00:00Z",
+  "schemas": [
+    {
+      "name": "算法性能Schema",
+      "entity_types": [
+        {
+          "name": "Algorithm",
+          "description": "算法实体"
+        },
+        {
+          "name": "Performance",
+          "description": "性能指标"
+        },
+        {
+          "name": "Dataset",
+          "description": "数据集"
+        }
+      ],
+      "relation_types": [
+        {
+          "name": "achieves",
+          "description": "算法达到性能"
+        },
+        {
+          "name": "tested_on",
+          "description": "在数据集上测试"
+        }
+      ]
+    },
+    {
+      "name": "机器学习算法Schema",
+      "entity_types": [
+        {
+          "name": "Algorithm",
+          "description": "机器学习算法"
+        },
+        {
+          "name": "Model",
+          "description": "训练好的模型"
+        },
+        {
+          "name": "Performance",
+          "description": "评估指标"
+        }
+      ],
+      "relation_types": [
+        {
+          "name": "trains",
+          "description": "训练模型"
+        },
+        {
+          "name": "achieves",
+          "description": "模型达到性能"
+        }
+      ]
+    }
+  ],
+  "merge_result": {
+    "success": true,
+    "temp_schema_id": "temp_merged_990f18be",
+    "conflicts_count": 2,
+    "conflicts": [
+      {
+        "description": "实体 'Algorithm' 在多个Schema中有不同语义",
+        "type": "semantic_conflict",
+        "auto_resolvable": false,
+        "confidence": 0.6
+      },
+      {
+        "description": "实体 'Performance' 在多个Schema中有不同语义",
+        "type": "semantic_conflict",
+        "auto_resolvable": false,
+        "confidence": 0.5
+      }
+    ]
+  },
+  "merged_schema": {
+    "name": "Merged_Schema_2_schemas",
+    "description": "合并了2个Schema的结果",
+    "entity_types": [
+      {
+        "name": "Algorithm",
+        "description": "算法实体"
+      },
+      {
+        "name": "Performance",
+        "description": "性能指标"
+      },
+      {
+        "name": "Dataset",
+        "description": "数据集"
+      },
+      {
+        "name": "Model",
+        "description": "训练好的模型"
+      }
+    ],
+    "relation_types": [
+      {
+        "name": "achieves",
+        "description": "算法达到性能"
+      },
+      {
+        "name": "tested_on",
+        "description": "在数据集上测试"
+      },
+      {
+        "name": "trains",
+        "description": "训练模型"
+      }
+    ]
+  }
+}

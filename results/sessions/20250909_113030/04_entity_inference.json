@@ -1,0 +1,82 @@
+{
+  "stage_name": "entity_inference",
+  "stage_number": 4,
+  "timestamp": "2025-09-09T11:30:36.513078",
+  "description": "实体推断和关系构建，生成2个实体，1个关系",
+  "input_summary": "1 个三元组",
+  "output_summary": "2 个实体, 1 个关系, 2 种实体类型",
+  "data": {
+    "entities": [
+      {
+        "id": "entity_0b7e67b6",
+        "name": "SVM",
+        "type": "Algorithm",
+        "properties": {
+          "inference_method": "schema",
+          "inference_time": 3.695487976074219e-05,
+          "original_name": "SVM",
+          "type_description": "具体算法或算法家族",
+          "aliases": [
+            "算法",
+            "算法族",
+            "模型",
+            "图表"
+          ]
+        },
+        "confidence": 0.9,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpk65abdr1.txt",
+        "created_at": "2025-09-09T11:30:36.512672",
+        "schema": "../schemas/general/schema_config.yaml"
+      },
+      {
+        "id": "entity_ac2c8f13",
+        "name": "好",
+        "type": "Unknown",
+        "properties": {
+          "inference_method": "unknown",
+          "inference_time": 8.106231689453125e-05,
+          "original_name": "好"
+        },
+        "confidence": 0.0,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpk65abdr1.txt",
+        "created_at": "2025-09-09T11:30:36.512672",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "relations": [
+      {
+        "id": "rel_2c74a1f9",
+        "subject_id": "entity_0b7e67b6",
+        "subject_name": "SVM",
+        "predicate": "used_in",
+        "object_id": "entity_ac2c8f13",
+        "object_name": "好",
+        "properties": {
+          "extraction_confidence": 0.8,
+          "triple_index": 0,
+          "relation_description": "应用场景",
+          "expected_subject_types": [
+            "Algorithm",
+            "Technique"
+          ],
+          "expected_object_types": [
+            "Task"
+          ]
+        },
+        "confidence": 0.8,
+        "source": "/var/folders/yw/sm2jz54x75v014rdjy616ckc0000gn/T/tmpk65abdr1.txt",
+        "created_at": "2025-09-09T11:30:36.512672",
+        "schema": "../schemas/general/schema_config.yaml"
+      }
+    ],
+    "entity_type_distribution": {
+      "Algorithm": 1,
+      "Unknown": 1
+    },
+    "inference_statistics": {
+      "total_entities": 2,
+      "total_relations": 1,
+      "unique_entity_types": 2
+    }
+  }
+}

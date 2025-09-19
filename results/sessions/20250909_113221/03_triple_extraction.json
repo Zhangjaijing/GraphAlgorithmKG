@@ -1,0 +1,30 @@
+{
+  "stage_name": "triple_extraction",
+  "stage_number": 3,
+  "timestamp": "2025-09-09T11:32:28.922387",
+  "description": "混合三元组抽取，规则:1个，LLM:0个",
+  "input_summary": "文档内容 + Schema配置(../schemas/general/schema_config.yaml)",
+  "output_summary": "总计 1 个三元组 (规则:1, LLM:0)",
+  "data": {
+    "extraction_method": "hybrid",
+    "rule_extraction_count": 1,
+    "llm_extraction_count": 0,
+    "methods_used": [
+      "rule_extraction",
+      "llm_extraction"
+    ],
+    "extraction_time": 7.2755420207977295,
+    "total_triples": 1,
+    "triples": [
+      {
+        "subject": "SVM",
+        "predicate": "used_in",
+        "object": "好",
+        "confidence": 0.8,
+        "method": "spatial_pattern",
+        "evidence": "Location pattern: (\\w+)[^a-zA-Z]*在[^a-zA-Z]*(\\w+)",
+        "original_predicate": "locatedAt"
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "stage_name": "triple_extraction",
+  "stage_number": 3,
+  "timestamp": "2025-09-08T21:26:07.200086",
+  "description": "混合三元组抽取，规则:0个，LLM:7个",
+  "input_summary": "文档内容 + Schema配置(dynamic_用户关系查询schema.yaml)",
+  "output_summary": "总计 7 个三元组 (规则:0, LLM:7)",
+  "data": {
+    "extraction_method": "hybrid",
+    "rule_extraction_count": 0,
+    "llm_extraction_count": 7,
+    "methods_used": [
+      "rule_extraction",
+      "llm_extraction"
+    ],
+    "extraction_time": 5.699615955352783,
+    "total_triples": 7,
+    "triples": [
+      {
+        "subject": "Player",
+        "predicate": "is_instance_of",
+        "object": "Action Sequence",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "executes"
+      },
+      {
+        "subject": "Player",
+        "predicate": "obtainsKey",
+        "object": "Bronze Key",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "obtains"
+      },
+      {
+        "subject": "Bronze Key",
+        "predicate": "is_instance_of",
+        "object": "Obtained",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "changes_state_to"
+      },
+      {
+        "subject": "Player",
+        "predicate": "is_instance_of",
+        "object": "Wooden Chest",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "arrives_at"
+      },
+      {
+        "subject": "Wooden Chest",
+        "predicate": "is_instance_of",
+        "object": "Unlocked",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "changes_state_to"
+      },
+      {
+        "subject": "Player",
+        "predicate": "opensChest",
+        "object": "Chest",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "opens"
+      },
+      {
+        "subject": "Player",
+        "predicate": "is_instance_of",
+        "object": "Reward Items",
+        "confidence": 0.9,
+        "method": "llm_extraction",
+        "evidence": "LLM generated",
+        "original_predicate": "receives"
+      }
+    ]
+  }
+}

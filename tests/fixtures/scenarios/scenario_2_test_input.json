@@ -1,0 +1,35 @@
+{
+  "scenario": "场景2: Schema增量演化",
+  "trigger_condition": "现有Schema + 发现新概念",
+  "user_input": {
+    "existing_schema": "通用知识图谱本体",
+    "new_document": {
+      "title": "量子算法在机器学习中的应用",
+      "content": "量子算法是一种利用量子力学原理进行计算的新型算法。量子退火算法(Quantum Annealing)在优化问题中表现出色，能够找到全局最优解。量子支持向量机(Quantum SVM)在处理高维数据时比传统SVM快100倍。量子神经网络(Quantum Neural Network)结合了量子计算和深度学习的优势，在某些任务上准确率提升了15%。量子近似优化算法(QAOA)在组合优化问题中展现了量子优势。这些量子算法都需要在量子计算机上运行，如IBM的量子处理器和Google的Sycamore芯片。量子算法的发展为机器学习带来了新的可能性，特别是在处理大规模数据和复杂优化问题方面。"
+    },
+    "discovered_concepts": [
+      "量子算法",
+      "量子退火算法", 
+      "量子支持向量机",
+      "量子神经网络",
+      "量子近似优化算法",
+      "量子计算机",
+      "量子处理器"
+    ]
+  },
+  "expected_system_behavior": [
+    "概念分类",
+    "用户确认",
+    "Schema更新"
+  ],
+  "expected_output": {
+    "schema_type": "扩展后的算法Schema",
+    "should_contain": [
+      "原有的Algorithm实体类型",
+      "新增的QuantumAlgorithm实体类型",
+      "新增的QuantumComputer实体类型",
+      "新增的runs_on关系类型"
+    ]
+  },
+  "test_timestamp": "2025-01-05T11:00:00Z"
+}
